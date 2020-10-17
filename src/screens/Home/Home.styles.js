@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
@@ -18,7 +20,8 @@ const styles = StyleSheet.create({
         justifyContent:'space-between'
     },
     headerTitle: {
-        padding: 10,
+        paddingHorizontal: width - 400,
+        paddingVertical: height - 780,
     },
     headerTitleText: {
         color: '#640fdb',
@@ -28,29 +31,30 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: "center",
-        padding: 2
+        paddingHorizontal: width - 400,
+        paddingVertical: height - 780
     },
     textContainerD: {
-        paddingHorizontal: 10,
-        paddingVertical: 5,
+        paddingHorizontal: width - 400,
+        paddingVertical: height - 788,
         fontSize: 20,
-        marginHorizontal: 2,
+        marginHorizontal: width - 405,
         borderRadius: 20,
         backgroundColor: '#b5a8a7'
     },
     textContainerW: {
-        paddingHorizontal: 10,
-        paddingVertical: 5,
+        paddingHorizontal: width - 400,
+        paddingVertical: height - 788,
         fontSize: 20,
-        marginHorizontal: 2,
+        marginHorizontal: width - 405,
         borderRadius: 20,
         backgroundColor: '#b5a8a7'
     }, 
     textContainerM: {
-        paddingHorizontal: 10,
-        paddingVertical: 5,
+        paddingHorizontal: width - 400,
+        paddingVertical: height - 700,
         fontSize: 20,
-        marginHorizontal: 2,
+        marginHorizontal: width - 402,
         borderRadius: 20,
         backgroundColor: '#b5a8a7'
     },
@@ -66,8 +70,8 @@ const styles = StyleSheet.create({
     graph: {
         shadowColor: "#000",
         shadowOffset: {
-            width: 0,
-            height: 12,
+            width: width - 0,
+            height: height - 702,
         },
         shadowOpacity: 0.58,
         shadowRadius: 16.00,
@@ -148,7 +152,9 @@ const styles = StyleSheet.create({
         fontSize: 13
     },
     cartigoryContainer: {
-        paddingVertical: 2
+        flexDirection: 'row',
+        paddingVertical: 2,
+        alignItems: "center"
     },
     contentContainer: {
         flexDirection: 'row',
@@ -161,8 +167,9 @@ const styles = StyleSheet.create({
     },
     amount: {
         fontSize: 17,
-        color: 'red',
-        fontWeight: "bold"
+        color: '#000',
+        fontWeight: "bold",
+        marginRight: 10
     }
 })
 
