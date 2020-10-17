@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#b5a8a7'
     },
     controlTextD: {
-        color: '#fff'
+        color: '#640fdb'
     },
     controlTextW: {
-        color: '#640fdb'
+        color: '#fff'
     },
     controlTextM: {
         color: '#fff'

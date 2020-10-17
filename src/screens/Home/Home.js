@@ -6,7 +6,9 @@ import {
   } from "react-native-chart-kit";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import SmsAndroid from "react-native-get-sms-android";
+import { useStoreActions } from 'easy-peasy';
 
 export default function Home() {
     const [minDate, setMinDate] = React.useState('');
@@ -14,7 +16,7 @@ export default function Home() {
     const [smsDataList, setSmsDataList] = React.useState([]);
     const [yAxis, setYaxes] = React.useState([]);
     const [xAxis, setXaxis] = React.useState([]);
-
+    const setBalance = useStoreActions((action) => action.setCurrentBalance)
     const filterSms = (data) => {
         const sms = []
         data.forEach((item) => {
@@ -27,15 +29,19 @@ export default function Home() {
                 let deduct = 0;
                 let account = ""
                 let yaxis = 0
+                let currentAmount = 0
                 if(title !== undefined && amount !== undefined && cartigory !== undefined){
                     // some are undifined
                     title = title.slice(5)
                     cartigory = cartigory.split(" ");
+                    currentAmount = amount.slice(6)
                     amount = cartigory[2];
                     yaxis = cartigory[2].slice(2);
                     deduct = cartigory[2][0] === "-" ? true : false;
                     account = `${cartigory[4]} ${cartigory[5]}`
                     cartigory = cartigory[1];
+                    const isRead = item.read;
+                    setBalance(currentAmount)
                     sms.push({
                         _id,
                         date,
@@ -45,7 +51,8 @@ export default function Home() {
                         deduct,
                         amount,
                         account,
-                        yaxis
+                        yaxis,
+                        isRead
                     })
                 }
             }
@@ -154,7 +161,7 @@ export default function Home() {
         return string;
     }
     const renderItem = ({ item }) => {
-        const { title, cartigory, deduct, amount} = item;
+        const { title, cartigory, deduct, amount, isRead} = item;
 
         return (
             <View style={styles.card}>
@@ -171,6 +178,7 @@ export default function Home() {
                         <Text style={[styles.amount, {color: deduct ? "red": "green"}]}>
                             {amount}
                         </Text>
+                        <Ionicons name={"md-mail-unread-outline"} size={20} color={isRead ? "black" : "green"} />
                     </View>
                 </View>
                 <View style={styles.amountContainer}>
