@@ -1,10 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import Routes from './src/routes/Routes';
+import { createStore, StoreProvider as Provider } from 'easy-peasy';
+import Store from './src/store/model';
+
+const store = createStore(Store);
 
 export default function App() {
   return (
-    <View>
-      <Text>Hello World</Text>
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+          <Routes />
+      </NavigationContainer>
+    </Provider>
   )
 }
