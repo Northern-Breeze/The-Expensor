@@ -1,14 +1,15 @@
 import React from 'react'
 import { View, Text, Dimensions , Platform, PermissionsAndroid, FlatList} from 'react-native'
 import styles from './Home.styles';
-import {
-    LineChart
-  } from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SmsAndroid from "react-native-get-sms-android";
 import { useStoreActions } from 'easy-peasy';
+
+const { height } = Dimensions.get('window');
 
 export default function Home() {
     const [minDate, setMinDate] = React.useState('');
@@ -89,8 +90,7 @@ export default function Home() {
         let granted = {};
         try {
             granted = await PermissionsAndroid.request(
-                PermissionsAndroid.PERMISSIONS.READ_SMS
-                ,
+                PermissionsAndroid.PERMISSIONS.READ_SMS,
                 {
                     title: "The Expensor Requires Read Permission to SMS",
                     message: "The Expensor SMS Finance App need access to display data",
@@ -141,6 +141,7 @@ export default function Home() {
         if(smsDataList){
             smsDataList.forEach((item, index) => {
                 if(index <= 6){
+                    console.log(new Date(item.date).toString());
                     x.push(new Date(item.date).toString().substring(16, 21))
                     y.push(item.yaxis);
                 }
@@ -203,12 +204,12 @@ export default function Home() {
                         <TouchableOpacity style={styles.textContainerW} activeOpacity={0.7}>
                             <Text style={styles.controlTextW}>Weekly</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.textContainerD} activeOpacity={0.7}>
+                        <TouchableOpacity style={styles.textContainerM} activeOpacity={0.7}>
                             <Text style={styles.controlTextM}>Monthly</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style={styles.graph}>
+                <View>
                    {
                        yAxis.length !== 0 && yAxis !== 0 && (
                         <LineChart
@@ -221,7 +222,7 @@ export default function Home() {
                                     ]
                                 }}
                                 width={Dimensions.get("window").width} // from react-native
-                                height={220}
+                                height={height - 535}
                                 yAxisLabel="R"
                                 // yAxisSuffix="k"
                                 yAxisInterval={1} // optional, defaults to 1
@@ -238,13 +239,13 @@ export default function Home() {
                                 propsForDots: {
                                     r: "6",
                                     strokeWidth: "2",
-                                    stroke: "#000"
+                                    stroke: "#640fdb"
                                 }
                                 }}
                                 bezier
                                 style={{
-                                marginVertical: 8,
-                                borderRadius: 16
+                                marginVertical: 2,
+                                borderRadius: 0
                                 }}
                             />
                        )
@@ -264,7 +265,7 @@ export default function Home() {
                                 </Text>
                             </View>
                             <View style={styles.controlAction}>
-                                <FontAwesome5 name="question-circle" size={20} color="#000" />
+                                <Feather name="settings" size={20} color="#640fdb" />
                             </View>
                         </TouchableOpacity>
                     </View>

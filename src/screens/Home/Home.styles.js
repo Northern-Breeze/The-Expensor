@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     },
     header:{
         flexDirection: "row",
+        alignItems: "center",
         justifyContent: 'space-between'
     },
     infoHeader: {
@@ -20,8 +21,8 @@ const styles = StyleSheet.create({
         justifyContent:'space-between'
     },
     headerTitle: {
-        paddingHorizontal: width - 400,
-        paddingVertical: height - 780,
+        paddingHorizontal: 5,
+        paddingVertical: 5,
     },
     headerTitleText: {
         color: '#640fdb',
@@ -31,53 +32,46 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: "center",
-        paddingHorizontal: width - 400,
-        paddingVertical: height - 780
+        paddingHorizontal: 2,
+        paddingVertical: 2
     },
     textContainerD: {
-        paddingHorizontal: width - 400,
-        paddingVertical: height - 788,
+        paddingHorizontal: 8,
+        paddingVertical: 2,
         fontSize: 20,
-        marginHorizontal: width - 405,
+        marginHorizontal: 3,
         borderRadius: 20,
-        backgroundColor: '#b5a8a7'
+        backgroundColor: '#6e6d6b',
     },
     textContainerW: {
-        paddingHorizontal: width - 400,
-        paddingVertical: height - 788,
+        paddingHorizontal: 8,
+        paddingVertical: 2,
         fontSize: 20,
-        marginHorizontal: width - 405,
+        marginHorizontal: 3,
         borderRadius: 20,
-        backgroundColor: '#b5a8a7'
+        backgroundColor: '#d1d0cd',
+        borderColor: '#6e6d6b',
+        borderWidth: 1
+
     }, 
     textContainerM: {
-        paddingHorizontal: width - 400,
-        paddingVertical: height - 700,
+        paddingHorizontal: 8,
+        paddingVertical: 2,
         fontSize: 20,
-        marginHorizontal: width - 402,
+        marginHorizontal: 3,
         borderRadius: 20,
-        backgroundColor: '#b5a8a7'
+        backgroundColor: '#d1d0cd',
+        borderColor: '#6e6d6b',
+        borderWidth: 1
     },
     controlTextD: {
-        color: '#640fdb'
+        color: '#fff'
     },
     controlTextW: {
         color: '#fff'
     },
     controlTextM: {
         color: '#fff'
-    },
-    graph: {
-        shadowColor: "#000",
-        shadowOffset: {
-            width: width - 0,
-            height: height - 702,
-        },
-        shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-        
-        elevation: 24,
-        marginHorizontal: 5,    
     },
     transactions: {
         flex: 1
@@ -116,7 +110,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderRadius: 20,
         marginHorizontal: 10,
-        width: 390,
+        width: width - 20,
         height: 100,
         shadowColor: "#000",
         shadowOffset: {
@@ -130,7 +124,7 @@ const styles = StyleSheet.create({
     iconContainer: {
         paddingVertical: 30,
         paddingHorizontal: 30,
-        backgroundColor: '#5407b5',
+        backgroundColor: '#fc8c03',
         borderRadius: 20,
         height: 85,
         width: 90,
