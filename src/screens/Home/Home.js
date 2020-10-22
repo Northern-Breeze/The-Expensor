@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Dimensions , Platform, PermissionsAndroid, FlatList} from 'react-native'
 import styles from './Home.styles';
-import { LineChart, BarChart } from "react-native-chart-kit";
+import { ContributionGraph, BarChart, PieChart } from "react-native-chart-kit";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -193,28 +193,28 @@ export default function Home() {
     const makeOrder = () => {
         let week = {};
         const date = new Date();
-        const days = ['Fri','Sat','Sun','Mon','Tue','Wen','Thu'];
+        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
         if(days[date.getDay()] === 'Thu'){
-            week = { 'Fri': 0, 'Sat': 0, 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wen': 0, 'Thu': 0}
+            week = { 'Fri': 0, 'Sat': 0, 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0}
         }
         if(days[date.getDay()] === 'Fri'){
-            week = { 'Sat': 0, 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wen': 0, 'Thu': 0, 'Fri': 0}
+            week = { 'Sat': 0, 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0}
         }
         if(days[date.getDay()] === 'Sat'){
-            week =  { 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wen': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0}
+            week =  { 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0}
         }
         if(days[date.getDay()] === 'Sun'){
-            week = { 'Mon': 0, 'Tue': 0, 'Wen': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0}
+            week = { 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0}
         }
         if(days[date.getDay()] === 'Mon'){
-            week = { 'Tue': 0, 'Wen': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0}
+            week = { 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0}
         }
         if(days[date.getDay()] === 'Tue'){
-            week = { 'Wen': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0,  'Tue': 0}
+            week = { 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0,  'Tue': 0}
         }
-        if(days[date.getDay()] === 'Wen'){
-            week = { 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0,  'Tue': 0,  'Wen': 0}
+        if(days[date.getDay()] === 'Wed'){
+            week = { 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0,  'Tue': 0,  'Wed': 0}
         }
         return week;
     }
@@ -223,8 +223,8 @@ export default function Home() {
         const x = [];
         const y = [];
         const week = [new Date().getDate() - 6,new Date().getDate() - 5,new Date().getDate() - 4, new Date().getDate() - 3, new Date().getDate() - 2, new Date().getDate() - 1, new Date().getDate() - 0 ];
-        let dates = {'Fri': 0, 'Sat': 0, 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wen': 0, 'Thu': 0};
-        // let dates = makeOrder();
+        let dates = makeOrder();
+        makeOrder()
         if(smsDataList){
             smsDataList.forEach((item, index) => {
                 if(index <= 6){
@@ -280,10 +280,6 @@ export default function Home() {
             case 'bar':
                 return (
                     <BarChart
-                            style={{
-                                marginVertical: 2,
-                                borderRadius: 0,
-                            }}
                             data={{
                                 labels: xAxis,
                                 datasets: [
@@ -296,24 +292,109 @@ export default function Home() {
                             height={220}
                             yAxisLabel="R"
                             chartConfig={{
-                                backgroundColor: "#ffa726",
+                                backgroundColor: "#e26a00",
                                 backgroundGradientFrom: "#fb8c00",
                                 backgroundGradientTo: "#ffa726",
-                                decimalPlaces: 2, 
-                                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                                decimalPlaces: 2,
+                                color: (opacity = 0.6) => `rgba(255, 255, 255, ${opacity})`,
                                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                                style:{
+                                    marginVertical: 2,
+                                    borderRadius: 0,
+                                    backgroundColor: '#fff'
+                                }
                                 }}
                             verticalLabelRotation={30}
                     />
                 );
             case 'pie':
                 return (
-                    <View>
-                        <Text>
-                            Pie
-                        </Text>
-                    </View>
+                    <PieChart
+                        data = {[
+                                {
+                                  name: "Seoul",
+                                  population: 21500000,
+                                  color: "rgba(131, 167, 234, 1)",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "Toronto",
+                                  population: 2800000,
+                                  color: "#F00",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "Beijing",
+                                  population: 527612,
+                                  color: "red",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "New York",
+                                  population: 8538000,
+                                  color: "#ffffff",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "Moscow",
+                                  population: 11920000,
+                                  color: "rgb(0, 0, 255)",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                }
+                              ]}
+                        width={width}
+                        height={220}
+                        chartConfig={{
+                            backgroundColor: "#ffa726",
+                            backgroundGradientFrom: "#fb8c00",
+                            backgroundGradientTo: "#ffa726",
+                            decimalPlaces: 2, 
+                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                        }}
+                        accessor="population"
+                        backgroundColor="transparent"
+                        paddingLeft="15"
+                        absolute
+                  />
                 )
+            case 'heat':
+                return (
+                    <ContributionGraph
+                        values={
+                            [
+                                { date: "2017-01-02", count: 1 },
+                                { date: "2017-01-03", count: 2 },
+                                { date: "2017-01-04", count: 3 },
+                                { date: "2017-01-05", count: 4 },
+                                { date: "2017-01-06", count: 5 },
+                                { date: "2017-01-30", count: 2 },
+                                { date: "2017-01-31", count: 3 },
+                                { date: "2017-03-01", count: 2 },
+                                { date: "2017-04-02", count: 4 },
+                                { date: "2017-03-05", count: 2 },
+                                { date: "2017-02-30", count: 4 }
+                              ]
+                        }
+                        endDate={new Date("2017-04-01")}
+                        numDays={105}
+                        width={width}
+                        height={220}
+                        chartConfig={{
+                            backgroundColor: "blue",
+                            backgroundGradientFrom: "#fb8c00",
+                            backgroundGradientTo: "#ffa726",
+                            decimalPlaces: 2, // optional, defaults to 2dp
+                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            }}
+                        />
+                );
             default:
                 return(
                     <BarChart
@@ -373,6 +454,11 @@ export default function Home() {
         </View>
         )
     }
+
+    const switchTo = (part) => {
+        setPlotKind(part);
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.plot}>
@@ -383,13 +469,13 @@ export default function Home() {
                         </View>
                     </View>
                     <View style={styles.toggleControls}>
-                        <TouchableOpacity style={styles.textContainerD} activeOpacity={0.7}>
+                        <TouchableOpacity style={styles.textContainerD} activeOpacity={0.7} onPress={() => switchTo('bar')}>
                             <Text style={styles.controlTextD}>BarChat</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.textContainerW} activeOpacity={0.7}>
+                        <TouchableOpacity style={styles.textContainerW} activeOpacity={0.7} onPress={() => switchTo('pie')}>
                             <Text style={styles.controlTextW}>PieChart</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.textContainerM} activeOpacity={0.7}>
+                        <TouchableOpacity style={styles.textContainerM} activeOpacity={0.7} onPress={() => switchTo('heat')}>
                             <Text style={styles.controlTextM}>Heat Map(new)</Text>
                         </TouchableOpacity>
                     </View>
@@ -411,7 +497,7 @@ export default function Home() {
                         <TouchableOpacity style={styles.orderByTextContainer} activeOpacity={0.7}>
                             <View style={styles.controlAction}>
                                 <Text style={styles.orderByText}>
-                                    order by
+                                    Config
                                 </Text>
                             </View>
                             <View style={styles.controlAction}>
