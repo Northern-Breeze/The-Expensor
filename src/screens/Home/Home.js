@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Dimensions , Platform, PermissionsAndroid, FlatList} from 'react-native'
 import styles from './Home.styles';
-import { LineChart } from "react-native-chart-kit";
+import { ContributionGraph, BarChart, PieChart } from "react-native-chart-kit";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -9,7 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SmsAndroid from "react-native-get-sms-android";
 import { useStoreActions } from 'easy-peasy';
 
-const { height } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
 export default function Home() {
     const [minDate, setMinDate] = React.useState('');
@@ -17,6 +17,8 @@ export default function Home() {
     const [smsDataList, setSmsDataList] = React.useState([]);
     const [yAxis, setYaxes] = React.useState([]);
     const [xAxis, setXaxis] = React.useState([]);
+    const [pieData, setPieData] = React.useState([]);
+    const [plotKind, setPlotKind] = React.useState('bar');
     const setBalance = useStoreActions((action) => action.setCurrentBalance)
     const filterSms = (data) => {
         const sms = []
@@ -28,33 +30,57 @@ export default function Home() {
                 let amount = item.body.split(';')[2];
                 let cartigory = item.body.split(';')[0];
                 let deduct = 0;
-                let account = ""
-                let yaxis = 0
-                let currentAmount = 0
+                let account = "";
+                let yaxis = 0;
+                let currentAmount = 0;
                 if(title !== undefined && amount !== undefined && cartigory !== undefined){
-                    // some are undifined
-                    title = title.slice(5)
+                    // Slice the first 5 charectors
+                    title = title.slice(5);
                     cartigory = cartigory.split(" ");
-                    currentAmount = amount.slice(6)
-                    amount = cartigory[2];
-                    yaxis = cartigory[2].slice(2);
-                    deduct = cartigory[2][0] === "-" ? true : false;
-                    account = `${cartigory[4]} ${cartigory[5]}`
-                    cartigory = cartigory[1];
-                    const isRead = item.read;
-                    setBalance(currentAmount)
-                    sms.push({
-                        _id,
-                        date,
-                        title,
-                        amount,
-                        cartigory,
-                        deduct,
-                        amount,
-                        account,
-                        yaxis,
-                        isRead
-                    })
+                    
+                    // purchase or not
+                    if(cartigory[1] === "Cash"){
+                        currentAmount = amount.slice(6)
+                        yaxis = cartigory[3].slice(2);
+                        account = `${cartigory[5]} ${cartigory[6]}`
+                        amount = cartigory[3];
+                        deduct = cartigory[3][0] === "-" ? true : false;
+                        cartigory = `${cartigory[1]}  ${cartigory[2]}`;
+                        const isRead = item.read;
+                        setBalance(currentAmount);
+                        sms.push({
+                            _id,
+                            date,
+                            title,
+                            cartigory,
+                            deduct,
+                            amount,
+                            account,
+                            yaxis,
+                            isRead
+                        })
+                    }
+                    if(cartigory[1] === "Purchase" || cartigory === "Payment"){
+                        currentAmount = amount.slice(6)
+                        yaxis = cartigory[2].slice(2);
+                        account = `${cartigory[4]} ${cartigory[5]}`
+                        amount = cartigory[2];
+                        deduct = cartigory[2][0] === "-" ? true : false;
+                        cartigory = cartigory[1]
+                        const isRead = item.read;
+                        setBalance(currentAmount)
+                        sms.push({
+                            _id,
+                            date,
+                            title,
+                            cartigory,
+                            deduct,
+                            amount,
+                            account,
+                            yaxis,
+                            isRead
+                        })
+                    }
                 }
             }
         })
@@ -135,18 +161,104 @@ export default function Home() {
         }
     }
 
+    const makeWeek = () => {
+        let week = [];
+        const date = new Date();
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        if(days[date.getDay()] === 'Thu'){
+            week = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"]
+        }
+        if(days[date.getDay()] === 'Fri'){
+            week = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]
+        }
+        if(days[date.getDay()] === 'Sat'){
+            week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",]
+        }
+        if(days[date.getDay()] === 'Sun'){
+            week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        }
+        if(days[date.getDay()] === 'Mon'){
+            week = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon"]
+        }
+        if(days[date.getDay()] === 'Tue'){
+            week = ["Wed", "Thu","Fri", "Sat", "Sun", "Mon", "Tue"]
+        }
+        if(days[date.getDay()] === 'Wen'){
+            week = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"]
+        }
+        return week;
+    }
+
+    const makeOrder = () => {
+        let week = {};
+        const date = new Date();
+        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+        if(days[date.getDay()] === 'Thu'){
+            week = { 'Fri': 0, 'Sat': 0, 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0}
+        }
+        if(days[date.getDay()] === 'Fri'){
+            week = { 'Sat': 0, 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0}
+        }
+        if(days[date.getDay()] === 'Sat'){
+            week =  { 'Sun': 0, 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0}
+        }
+        if(days[date.getDay()] === 'Sun'){
+            week = { 'Mon': 0, 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0}
+        }
+        if(days[date.getDay()] === 'Mon'){
+            week = { 'Tue': 0, 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0}
+        }
+        if(days[date.getDay()] === 'Tue'){
+            week = { 'Wed': 0, 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0,  'Tue': 0}
+        }
+        if(days[date.getDay()] === 'Wed'){
+            week = { 'Thu': 0, 'Fri': 0, 'Sat': 0,  'Sun': 0, 'Mon': 0,  'Tue': 0,  'Wed': 0}
+        }
+        return week;
+    }
+
     React.useEffect(() => {
         const x = [];
         const y = [];
+        const week = [new Date().getDate() - 6,new Date().getDate() - 5,new Date().getDate() - 4, new Date().getDate() - 3, new Date().getDate() - 2, new Date().getDate() - 1, new Date().getDate() - 0 ];
+        let dates = makeOrder();
+        makeOrder()
         if(smsDataList){
             smsDataList.forEach((item, index) => {
                 if(index <= 6){
-                    console.log(new Date(item.date).toString());
-                    x.push(new Date(item.date).toString().substring(16, 21))
-                    y.push(item.yaxis);
+                    // console.log(new Date(item.date).getDate());
+                    if(new Date(item.date).getDay() === 0){
+                        dates.Sun += Number(item.yaxis);
+                    }
+                    if(new Date(item.date).getDay() === 1){
+                        dates.Mon += Number(item.yaxis);
+                    }
+                    if(new Date(item.date).getDay() === 2){
+                        dates.Tue += Number(item.yaxis);
+                    }
+                    if(new Date(item.date).getDay() === 3){
+                        dates.Wen += Number(item.yaxis);
+                    }
+                    if(new Date(item.date).getDay() === 4){
+                        dates.Thu += Number(item.yaxis);
+                    }
+                    if(new Date(item.date).getDay() === 5){
+                        dates.Fri += Number(item.yaxis);
+                    }
+                    if(new Date(item.date).getDay() === 6){
+                        dates.Sat += Number(item.yaxis);
+                    }
+                    // y.push(item.yaxis);
+                    x.push(new Date(item.date).getDate())
                 }
             });
-            setXaxis(x);
+           
+            Object.keys(dates).forEach(item => {
+                y.push(dates[item])
+            })
+            setXaxis(makeWeek());
             setYaxes(y);
         }
     },[smsDataList]);
@@ -161,6 +273,160 @@ export default function Home() {
         }
         return string;
     }
+
+
+    const plotSwitcher = (plot) => {
+        switch(plot){
+            case 'bar':
+                return (
+                    <BarChart
+                            data={{
+                                labels: xAxis,
+                                datasets: [
+                                {
+                                    data: yAxis
+                                }
+                                ]
+                            }}
+                            width={width}
+                            height={220}
+                            yAxisLabel="R"
+                            chartConfig={{
+                                backgroundColor: "#e26a00",
+                                backgroundGradientFrom: "#fb8c00",
+                                backgroundGradientTo: "#ffa726",
+                                decimalPlaces: 2,
+                                color: (opacity = 0.6) => `rgba(255, 255, 255, ${opacity})`,
+                                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                                style:{
+                                    marginVertical: 2,
+                                    borderRadius: 0,
+                                    backgroundColor: '#fff'
+                                }
+                                }}
+                            verticalLabelRotation={30}
+                    />
+                );
+            case 'pie':
+                return (
+                    <PieChart
+                        data = {[
+                                {
+                                  name: "Seoul",
+                                  population: 21500000,
+                                  color: "rgba(131, 167, 234, 1)",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "Toronto",
+                                  population: 2800000,
+                                  color: "#F00",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "Beijing",
+                                  population: 527612,
+                                  color: "red",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "New York",
+                                  population: 8538000,
+                                  color: "#ffffff",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                },
+                                {
+                                  name: "Moscow",
+                                  population: 11920000,
+                                  color: "rgb(0, 0, 255)",
+                                  legendFontColor: "#7F7F7F",
+                                  legendFontSize: 15
+                                }
+                              ]}
+                        width={width}
+                        height={220}
+                        chartConfig={{
+                            backgroundColor: "#ffa726",
+                            backgroundGradientFrom: "#fb8c00",
+                            backgroundGradientTo: "#ffa726",
+                            decimalPlaces: 2, 
+                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                        }}
+                        accessor="population"
+                        backgroundColor="transparent"
+                        paddingLeft="15"
+                        absolute
+                  />
+                )
+            case 'heat':
+                return (
+                    <ContributionGraph
+                        values={
+                            [
+                                { date: "2017-01-02", count: 1 },
+                                { date: "2017-01-03", count: 2 },
+                                { date: "2017-01-04", count: 3 },
+                                { date: "2017-01-05", count: 4 },
+                                { date: "2017-01-06", count: 5 },
+                                { date: "2017-01-30", count: 2 },
+                                { date: "2017-01-31", count: 3 },
+                                { date: "2017-03-01", count: 2 },
+                                { date: "2017-04-02", count: 4 },
+                                { date: "2017-03-05", count: 2 },
+                                { date: "2017-02-30", count: 4 }
+                              ]
+                        }
+                        endDate={new Date("2017-04-01")}
+                        numDays={105}
+                        width={width}
+                        height={220}
+                        chartConfig={{
+                            backgroundColor: "blue",
+                            backgroundGradientFrom: "#fb8c00",
+                            backgroundGradientTo: "#ffa726",
+                            decimalPlaces: 2, // optional, defaults to 2dp
+                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                            }}
+                        />
+                );
+            default:
+                return(
+                    <BarChart
+                    style={{
+                        marginVertical: 2,
+                        borderRadius: 0,
+                    }}
+                    data={{
+                        labels: xAxis,
+                        datasets: [
+                        {
+                            data: yAxis
+                        }
+                        ]
+                    }}
+                    width={width}
+                    height={220}
+                    yAxisLabel="R"
+                    chartConfig={{
+                        backgroundColor: "blue",
+                        backgroundGradientFrom: "#fb8c00",
+                        backgroundGradientTo: "#ffa726",
+                        decimalPlaces: 2, // optional, defaults to 2dp
+                        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                        labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                        }}
+                    verticalLabelRotation={30}
+            />
+                );
+        }
+    }
+
     const renderItem = ({ item }) => {
         const { title, cartigory, deduct, amount, isRead} = item;
 
@@ -188,6 +454,11 @@ export default function Home() {
         </View>
         )
     }
+
+    const switchTo = (part) => {
+        setPlotKind(part);
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.plot}>
@@ -198,56 +469,21 @@ export default function Home() {
                         </View>
                     </View>
                     <View style={styles.toggleControls}>
-                        <TouchableOpacity style={styles.textContainerD} activeOpacity={0.7}>
-                            <Text style={styles.controlTextD}>Daily</Text>
+                        <TouchableOpacity style={styles.textContainerD} activeOpacity={0.7} onPress={() => switchTo('bar')}>
+                            <Text style={styles.controlTextD}>BarChat</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.textContainerW} activeOpacity={0.7}>
-                            <Text style={styles.controlTextW}>Weekly</Text>
+                        <TouchableOpacity style={styles.textContainerW} activeOpacity={0.7} onPress={() => switchTo('pie')}>
+                            <Text style={styles.controlTextW}>PieChart</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.textContainerM} activeOpacity={0.7}>
-                            <Text style={styles.controlTextM}>Monthly</Text>
+                        <TouchableOpacity style={styles.textContainerM} activeOpacity={0.7} onPress={() => switchTo('heat')}>
+                            <Text style={styles.controlTextM}>Heat Map(new)</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
                 <View>
                    {
                        yAxis.length !== 0 && yAxis !== 0 && (
-                        <LineChart
-                                data={{
-                                    labels: xAxis,
-                                    datasets: [
-                                    {
-                                        data: yAxis
-                                    }
-                                    ]
-                                }}
-                                width={Dimensions.get("window").width} // from react-native
-                                height={height - 535}
-                                yAxisLabel="R"
-                                // yAxisSuffix="k"
-                                yAxisInterval={1} // optional, defaults to 1
-                                chartConfig={{
-                                backgroundColor: "#fff",
-                                backgroundGradientFrom: "#fb8c00",
-                                backgroundGradientTo: "#ffa726",
-                                decimalPlaces: 2, // optional, defaults to 2dp
-                                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                                style: {
-                                    borderRadius: 16
-                                },
-                                propsForDots: {
-                                    r: "6",
-                                    strokeWidth: "2",
-                                    stroke: "#640fdb"
-                                }
-                                }}
-                                bezier
-                                style={{
-                                marginVertical: 2,
-                                borderRadius: 0
-                                }}
-                            />
+                            plotSwitcher(plotKind)
                        )
                    }
                 </View>
@@ -261,7 +497,7 @@ export default function Home() {
                         <TouchableOpacity style={styles.orderByTextContainer} activeOpacity={0.7}>
                             <View style={styles.controlAction}>
                                 <Text style={styles.orderByText}>
-                                    order by
+                                    Config
                                 </Text>
                             </View>
                             <View style={styles.controlAction}>
