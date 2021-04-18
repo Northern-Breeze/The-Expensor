@@ -350,11 +350,13 @@ export default function Home() {
             </TouchableOpacity>
           </View>
           {smsDataList.length !== 0 ? (
-            <FlatList
-              data={smsDataList}
-              renderItem={CardList}
-              keyExtractor={(item, index) => index.toString()}
-            />
+            <View style={styles.listContainer}>
+              <FlatList
+                data={smsDataList}
+                renderItem={CardList}
+                keyExtractor={(item, index) => index.toString()}
+              />
+            </View>
           ) : (
             <View>
               <Text>Empty</Text>

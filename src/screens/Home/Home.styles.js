@@ -101,24 +101,9 @@ const styles = StyleSheet.create({
     color: '#640fdb',
     fontSize: 13,
   },
-  card: {
-    marginTop: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: '#fff',
-    borderRadius: 20,
-    marginHorizontal: 10,
-    width: width - 20,
-    height: 100,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.44,
-    shadowRadius: 10.32,
-    elevation: 16,
+  listContainer: {
+    flex: 1,
+    marginVertical: 10,
   },
   iconContainer: {
     paddingVertical: 30,
