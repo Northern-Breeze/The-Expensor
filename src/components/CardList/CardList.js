@@ -3,8 +3,6 @@ import {View, Text} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {FlatListExt} from './FlatListExt';
-
 import ellipse from '../../utils/elipse';
 
 import styles from './Card.style';

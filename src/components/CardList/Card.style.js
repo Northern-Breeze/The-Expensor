@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.44,
     shadowRadius: 10.32,
     elevation: 16,
+    marginVertical: 10,
   },
   iconContainer: {
     paddingVertical: 30,
