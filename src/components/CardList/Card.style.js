@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 13,
   },
-  cartigoryContainer: {
+  categoryContainer: {
     flexDirection: 'row',
     paddingVertical: 2,
     alignItems: 'center',

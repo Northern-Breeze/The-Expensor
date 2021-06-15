@@ -3,15 +3,15 @@ import {View, Text, Platform, PermissionsAndroid, FlatList} from 'react-native';
 import styles from './Home.styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Feather from 'react-native-vector-icons/Feather';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import SmsAndroid from 'react-native-get-sms-android';
-import {useStoreActions} from 'easy-peasy';
 
 import BarGraph from '../../components/BarGraph';
 import PieGraph from '../../components/PieGraph';
 import HeatMap from '../../components/HeatMap';
 import CardList from '../../components/CardList/CardList';
+
+// helper function
+import {smsParser} from '../../utils/messages';
 
 export default function Home() {
   const [minDate, setMinDate] = React.useState('');
@@ -20,83 +20,13 @@ export default function Home() {
   const [yAxis, setYaxes] = React.useState([]);
   const [xAxis, setXaxis] = React.useState([]);
   const [plotKind, setPlotKind] = React.useState('bar');
-  const setBalanceArray = useStoreActions((action) => action.setBalanceArray);
-  const filterSms = (data) => {
-    const sms = [];
-    data.forEach((item, index) => {
-      if (item.address === '+2782004809006') {
-        const _id = item._id;
-        const date = item.date;
-        let title = item.body.split(';')[1];
-        let amount = item.body.split(';')[2];
-        let category = item.body.split(';')[0];
-        let deduct = 0;
-        let account = '';
-        let yaxis = 0;
-        let currentAmount = 0;
-        if (
-          title !== undefined &&
-          amount !== undefined &&
-          category !== undefined
-        ) {
-          // Slice the first 5 characters
-          title = title.slice(5);
-          category = category.split(' ');
 
-          // purchase or not
-          if (category[1] === 'Cash') {
-            currentAmount = amount.slice(6);
-            yaxis = category[3].slice(2);
-            account = `${category[5]} ${category[6]}`;
-            amount = category[3];
-            deduct = category[3][0] === '-' ? true : false;
-            category = `${category[1]}  ${category[2]}`;
-            const isRead = item.read;
-            setBalanceArray(currentAmount);
-            sms.push({
-              _id,
-              date,
-              title,
-              category: category,
-              deduct,
-              amount,
-              account,
-              yaxis,
-              isRead,
-            });
-          }
-          if (category[1] === 'Purchase' || category === 'Payment') {
-            currentAmount = amount.slice(6);
-            yaxis = category[2].slice(2);
-            account = `${category[4]} ${category[5]}`;
-            amount = category[2];
-            deduct = category[2][0] === '-' ? true : false;
-            category = category[1];
-            const isRead = item.read;
-            console.log(index, currentAmount);
-            setBalanceArray(currentAmount);
-            sms.push({
-              _id,
-              date,
-              title,
-              category: category,
-              deduct,
-              amount,
-              account,
-              yaxis,
-              isRead,
-            });
-          }
-        }
-      }
-    });
-    setSmsDataList(sms);
-  };
+  const denied = React.useRef(false);
 
   const listSMS = () => {
     const filter = {
       box: 'inbox',
-      maxCount: 30,
+      maxCount: 100,
     };
     if (minDate !== '') {
       filter.minDate = minDate;
@@ -111,7 +41,8 @@ export default function Home() {
       },
       (count, smsList) => {
         const arr = JSON.parse(smsList);
-        filterSms(arr);
+        const data = smsParser(arr);
+        setSmsDataList(data);
       },
     );
   };
@@ -130,11 +61,10 @@ export default function Home() {
         },
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        // eslint-disable-next-line no-alert
-        alert('You can use SMS features');
+        // access allowed
       } else {
-        // eslint-disable-next-line no-alert
-        alert('SMS permission denied');
+        // access denied
+        denied.current = true;
       }
     } catch (error) {
       console.error(error);
@@ -230,15 +160,6 @@ export default function Home() {
   React.useEffect(() => {
     const x = [];
     const y = [];
-    const week = [
-      new Date().getDate() - 6,
-      new Date().getDate() - 5,
-      new Date().getDate() - 4,
-      new Date().getDate() - 3,
-      new Date().getDate() - 2,
-      new Date().getDate() - 1,
-      new Date().getDate() - 0,
-    ];
     let dates = makeOrder();
     makeOrder();
     if (smsDataList) {
@@ -266,14 +187,11 @@ export default function Home() {
           if (new Date(item.date).getDay() === 6) {
             dates.Sat += Number(item.yaxis);
           }
-          // y.push(item.yaxis);
+          y.push(item.yaxis);
           x.push(new Date(item.date).getDate());
         }
       });
 
-      Object.keys(dates).forEach((item) => {
-        y.push(dates[item]);
-      });
       setXaxis(makeWeek());
       setYaxes(y);
     }

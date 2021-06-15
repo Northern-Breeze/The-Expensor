@@ -8,7 +8,7 @@ import ellipse from '../../utils/elipse';
 import styles from './Card.style';
 
 export default function ({item}) {
-  const {title, cartigory, deduct, amount, isRead} = item;
+  const {title, category, deduct, amount, isRead} = item;
 
   return (
     <View style={styles.card}>
@@ -24,10 +24,10 @@ export default function ({item}) {
           <View style={styles.referenceContainer}>
             <Text style={styles.reference}>{ellipse(title)}</Text>
           </View>
-          <View style={styles.cartigoryContainer}>
-            <Text style={styles.amount}>{cartigory}</Text>
+          <View style={styles.categoryContainer}>
+            <Text style={styles.amount}>{category}</Text>
             <Text style={[styles.amount, {color: deduct ? 'red' : 'green'}]}>
-              {amount}
+              R {amount}
             </Text>
             <Ionicons
               name={'md-mail-unread-outline'}
