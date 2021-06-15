@@ -1,6 +1,6 @@
-const ellipse = (string) => {
-  if (string.length > 29) {
-    return string.substr(0, 29 - 1) + '...';
+const ellipse = (string, length = 29) => {
+  if (string.length > length) {
+    return string.substr(0, length - 1) + '...';
   }
   return string;
 };

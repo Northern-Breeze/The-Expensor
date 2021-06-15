@@ -206,7 +206,7 @@ export default function Home() {
       case 'bar':
         return <BarGraph xAxis={xAxis} yAxis={yAxis} />;
       case 'pie':
-        return <PieGraph />;
+        return <PieGraph pieData={smsDataList} />;
       case 'heat':
         return <HeatMap />;
       default:
@@ -229,19 +229,34 @@ export default function Home() {
           </View>
           <View style={styles.toggleControls}>
             <TouchableOpacity
-              style={styles.textContainerD}
+              style={[
+                styles.textContainerD,
+                plotKind === 'bar'
+                  ? {backgroundColor: '#6e6d6b', borderColor: ''}
+                  : {backgroundColor: '#d1d0cd', borderColor: '#6e6d6b'},
+              ]}
               activeOpacity={0.7}
               onPress={() => switchTo('bar')}>
               <Text style={styles.controlTextD}>BarChat</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.textContainerW}
+              style={[
+                styles.textContainerW,
+                plotKind === 'pie'
+                  ? {backgroundColor: '#6e6d6b', borderColor: ''}
+                  : {backgroundColor: '#d1d0cd', borderColor: '#6e6d6b'},
+              ]}
               activeOpacity={0.7}
               onPress={() => switchTo('pie')}>
               <Text style={styles.controlTextW}>PieChart</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.textContainerM}
+              style={[
+                styles.textContainerM,
+                plotKind === 'heat'
+                  ? {backgroundColor: '#6e6d6b', borderColor: ''}
+                  : {backgroundColor: '#d1d0cd', borderColor: '#6e6d6b'},
+              ]}
               activeOpacity={0.7}
               onPress={() => switchTo('heat')}>
               <Text style={styles.controlTextM}>Heat Map(new)</Text>

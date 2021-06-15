@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginHorizontal: 3,
     borderRadius: 20,
-    backgroundColor: '#6e6d6b',
   },
   textContainerW: {
     paddingHorizontal: 8,
