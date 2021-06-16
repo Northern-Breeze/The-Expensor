@@ -67,6 +67,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginRight: 10,
   },
+  green: {
+    color: 'green',
+  },
+  red: {
+    color: 'red',
+  },
 });
 
 export default styles;

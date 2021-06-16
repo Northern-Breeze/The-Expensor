@@ -1,7 +1,7 @@
 export const smsParser = (sms) => {
   const capitec = sms.filter((item) => item.address === '+2782004809006');
   const formattedMessages = []; // we need to keep track of the proper formatted SMS
-  capitec.forEach((item, index) => {
+  capitec.forEach((item) => {
     const date = item.date;
     const id = item._id;
     const isRead = item.read;

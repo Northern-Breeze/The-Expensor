@@ -146,6 +146,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginRight: 10,
   },
+  // dynamic options
+  selected: {
+    backgroundColor: '#d1d0cd',
+    borderColor: '#6e6d6b',
+  },
+  notSelected: {
+    backgroundColor: '#6e6d6b',
+    borderColor: '#fff',
+  },
 });
 
 export default styles;

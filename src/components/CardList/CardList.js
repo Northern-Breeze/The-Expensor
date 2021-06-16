@@ -26,7 +26,11 @@ export default function ({item}) {
           </View>
           <View style={styles.categoryContainer}>
             <Text style={styles.amount}>{category}</Text>
-            <Text style={[styles.amount, {color: deduct ? 'red' : 'green'}]}>
+            <Text
+              style={[
+                styles.amount,
+                {color: deduct ? styles.red : styles.green},
+              ]}>
               R {amount}
             </Text>
             <Ionicons

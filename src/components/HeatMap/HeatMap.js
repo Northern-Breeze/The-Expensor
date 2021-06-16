@@ -4,24 +4,52 @@ import {ContributionGraph} from 'react-native-chart-kit';
 
 const {width} = Dimensions.get('window');
 
-export default function HeatMap() {
+export default function HeatMap(props) {
+  const {data} = props;
+  const [heat, setHeat] = React.useState([]);
+  const [maximum, setMaximum] = React.useState('');
+
+  const counter = (a) => {
+    let count = {};
+    const heatmap = [];
+    a.forEach(function (i) {
+      count[i] = (count[i] || 0) + 1;
+    });
+    Object.keys(count).forEach((item) => {
+      heatmap.push({date: item, count: count[item]});
+    });
+    return heatmap;
+  };
+  React.useEffect(() => {
+    const temp = [];
+    data.forEach((item) => {
+      // make a date
+      const date = new Date(item.date);
+      const dateFormatted = `${date.getFullYear()}-${
+        date.getMonth() + 1
+      }-${date.getDate()}`;
+      // Push to temp
+      temp.push(dateFormatted);
+    });
+
+    const value = counter(temp);
+    setHeat(value);
+    console.log(value);
+  }, [data]);
+
+  React.useEffect(() => {
+    const date = new Date();
+    const dateFormatted = `${date.getFullYear()}-${
+      date.getMonth() + 1
+    }-${date.getDate()}`;
+    setMaximum(dateFormatted);
+  }, []);
+
   return (
     <ContributionGraph
-      values={[
-        {date: '2017-01-02', count: 1},
-        {date: '2017-01-03', count: 2},
-        {date: '2017-01-04', count: 3},
-        {date: '2017-01-05', count: 4},
-        {date: '2017-01-06', count: 5},
-        {date: '2017-01-30', count: 2},
-        {date: '2017-01-31', count: 3},
-        {date: '2017-03-01', count: 2},
-        {date: '2017-04-02', count: 4},
-        {date: '2017-03-05', count: 2},
-        {date: '2017-02-30', count: 4},
-      ]}
-      endDate={new Date('2017-04-01')}
-      numDays={105}
+      values={heat}
+      endDate={maximum}
+      numDays={110}
       width={width}
       height={220}
       chartConfig={{

@@ -161,11 +161,9 @@ export default function Home() {
     const x = [];
     const y = [];
     let dates = makeOrder();
-    makeOrder();
     if (smsDataList) {
       smsDataList.forEach((item, index) => {
         if (index <= 6) {
-          // console.log(new Date(item.date).getDate());
           if (new Date(item.date).getDay() === 0) {
             dates.Sun += Number(item.yaxis);
           }
@@ -176,7 +174,7 @@ export default function Home() {
             dates.Tue += Number(item.yaxis);
           }
           if (new Date(item.date).getDay() === 3) {
-            dates.Wen += Number(item.yaxis);
+            dates.Wed += Number(item.yaxis);
           }
           if (new Date(item.date).getDay() === 4) {
             dates.Thu += Number(item.yaxis);
@@ -187,13 +185,14 @@ export default function Home() {
           if (new Date(item.date).getDay() === 6) {
             dates.Sat += Number(item.yaxis);
           }
-          // y.push(item.yaxis);
           x.push(new Date(item.date).getDate());
         }
       });
-
+      // console.log(dates);
       Object.keys(dates).forEach((item) => {
-        y.push(dates[item]);
+        if (!isNaN(dates[item])) {
+          y.push(dates[item]);
+        }
       });
       setXaxis(makeWeek());
       setYaxes(y);
@@ -202,6 +201,7 @@ export default function Home() {
 
   React.useEffect(() => {
     checkAppPermissions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
@@ -217,7 +217,7 @@ export default function Home() {
       case 'pie':
         return <PieGraph pieData={smsDataList} />;
       case 'heat':
-        return <HeatMap />;
+        return <HeatMap data={smsDataList} />;
       default:
         return <BarGraph xAxis={xAxis} yAxis={yAxis} />;
     }
@@ -240,9 +240,7 @@ export default function Home() {
             <TouchableOpacity
               style={[
                 styles.textContainerD,
-                plotKind === 'bar'
-                  ? {backgroundColor: '#6e6d6b', borderColor: ''}
-                  : {backgroundColor: '#d1d0cd', borderColor: '#6e6d6b'},
+                plotKind === 'bar' ? styles.notSelected : styles.selected,
               ]}
               activeOpacity={0.7}
               onPress={() => switchTo('bar')}>
@@ -251,9 +249,7 @@ export default function Home() {
             <TouchableOpacity
               style={[
                 styles.textContainerW,
-                plotKind === 'pie'
-                  ? {backgroundColor: '#6e6d6b', borderColor: ''}
-                  : {backgroundColor: '#d1d0cd', borderColor: '#6e6d6b'},
+                plotKind === 'pie' ? styles.notSelected : styles.selected,
               ]}
               activeOpacity={0.7}
               onPress={() => switchTo('pie')}>
@@ -262,9 +258,7 @@ export default function Home() {
             <TouchableOpacity
               style={[
                 styles.textContainerM,
-                plotKind === 'heat'
-                  ? {backgroundColor: '#6e6d6b', borderColor: ''}
-                  : {backgroundColor: '#d1d0cd', borderColor: '#6e6d6b'},
+                plotKind === 'heat' ? styles.notSelected : styles.selected,
               ]}
               activeOpacity={0.7}
               onPress={() => switchTo('heat')}>
