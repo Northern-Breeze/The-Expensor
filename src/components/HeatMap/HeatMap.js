@@ -48,7 +48,7 @@ export default function HeatMap(props) {
   return (
     <ContributionGraph
       values={heat}
-      endDate={maximum}
+      endDate={new Date()}
       numDays={110}
       width={width}
       height={220}
