@@ -65,15 +65,15 @@ export default function PieGraph(data) {
       width={width}
       height={220}
       chartConfig={{
-        backgroundColor: '#ffa726',
-        backgroundGradientFrom: '#fb8c00',
-        backgroundGradientTo: '#ffa726',
+        backgroundColor: 'rgba(9,185,182,1)',
+        backgroundGradientFrom: 'rgba(9,185,182,1)',
+        backgroundGradientTo: 'rgba(9,185,182,1)',
         decimalPlaces: 2,
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       }}
       accessor="population"
-      backgroundColor="#000"
+      backgroundColor="rgba(9,185,182,1)"
       paddingLeft="15"
       absolute
     />

@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   reference: {
     fontWeight: 'bold',
-    fontSize: 13,
+    fontSize: 16,
     color: '#fff',
   },
   categoryContainer: {
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   amount: {
-    fontSize: 17,
+    fontSize: 14,
     color: '#fff',
     fontWeight: 'bold',
     marginRight: 10,

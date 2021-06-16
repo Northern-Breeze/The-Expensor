@@ -7,7 +7,6 @@ const {width} = Dimensions.get('window');
 export default function HeatMap(props) {
   const {data} = props;
   const [heat, setHeat] = React.useState([]);
-  const [maximum, setMaximum] = React.useState('');
 
   const counter = (a) => {
     let count = {};
@@ -44,7 +43,9 @@ export default function HeatMap(props) {
       width={width}
       height={220}
       chartConfig={{
-        backgroundColor: 'blue',
+        backgroundGradientFrom: 'rgba(9,185,182,1)',
+        backgroundGradientFromOpacity: 0,
+        backgroundGradientTo: 'rgba(9,185,182,1)',
         decimalPlaces: 2, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
