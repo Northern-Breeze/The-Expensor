@@ -13,7 +13,7 @@ export default function HomeRoutes() {
         name="Home"
         component={Home}
         options={{
-          title: 'The Expensor',
+          title: '',
           drawerIcon: ({focused, size}) => (
             <Ionicons
               name="md-home"

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Platform, PermissionsAndroid, FlatList} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import styles from './Home.styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Feather from 'react-native-vector-icons/Feather';
@@ -188,7 +189,6 @@ export default function Home() {
           x.push(new Date(item.date).getDate());
         }
       });
-      // console.log(dates);
       Object.keys(dates).forEach((item) => {
         if (!isNaN(dates[item])) {
           y.push(dates[item]);
@@ -228,7 +228,9 @@ export default function Home() {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={['rgba(9,185,182,1) 100%', 'rgba(18,160,115,1) 31%']}
+      style={styles.container}>
       <View style={styles.plot}>
         <View style={styles.header}>
           <View style={styles.infoHeader}>
@@ -300,6 +302,6 @@ export default function Home() {
           )}
         </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 }

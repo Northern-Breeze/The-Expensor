@@ -7,7 +7,6 @@ const {width} = Dimensions.get('window');
 export default function HeatMap(props) {
   const {data} = props;
   const [heat, setHeat] = React.useState([]);
-  const [maximum, setMaximum] = React.useState('');
 
   const counter = (a) => {
     let count = {};
@@ -34,28 +33,19 @@ export default function HeatMap(props) {
 
     const value = counter(temp);
     setHeat(value);
-    console.log(value);
   }, [data]);
-
-  React.useEffect(() => {
-    const date = new Date();
-    const dateFormatted = `${date.getFullYear()}-${
-      date.getMonth() + 1
-    }-${date.getDate()}`;
-    setMaximum(dateFormatted);
-  }, []);
 
   return (
     <ContributionGraph
       values={heat}
-      endDate={maximum}
+      endDate={new Date()}
       numDays={110}
       width={width}
       height={220}
       chartConfig={{
-        backgroundColor: 'blue',
-        backgroundGradientFrom: '#fb8c00',
-        backgroundGradientTo: '#ffa726',
+        backgroundGradientFrom: 'rgba(9,185,182,1)',
+        backgroundGradientFromOpacity: 0,
+        backgroundGradientTo: 'rgba(9,185,182,1)',
         decimalPlaces: 2, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
