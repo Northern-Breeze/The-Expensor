@@ -14,8 +14,8 @@ import CardList from '../../components/CardList/CardList';
 import {smsParser} from '../../utils/messages';
 
 export default function Home() {
-  const [minDate, setMinDate] = React.useState('');
-  const [maxDate, setMaxDate] = React.useState('');
+  const [minDate] = React.useState('');
+  const [maxDate] = React.useState('');
   const [smsDataList, setSmsDataList] = React.useState([]);
   const [yAxis, setYaxes] = React.useState([]);
   const [xAxis, setXaxis] = React.useState([]);
@@ -187,11 +187,14 @@ export default function Home() {
           if (new Date(item.date).getDay() === 6) {
             dates.Sat += Number(item.yaxis);
           }
-          y.push(item.yaxis);
+          // y.push(item.yaxis);
           x.push(new Date(item.date).getDate());
         }
       });
 
+      Object.keys(dates).forEach((item) => {
+        y.push(dates[item]);
+      });
       setXaxis(makeWeek());
       setYaxes(y);
     }
@@ -200,6 +203,12 @@ export default function Home() {
   React.useEffect(() => {
     checkAppPermissions();
   }, []);
+
+  React.useEffect(() => {
+    return () => {
+      denied.current = false;
+    };
+  });
 
   const plotSwitcher = (plot) => {
     switch (plot) {

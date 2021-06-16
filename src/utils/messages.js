@@ -20,7 +20,7 @@ export const smsParser = (sms) => {
       const reference = second.replace('Ref', ''); // replace the keyword Ref with ''
       const regex = /[-]/g;
       formattedMessages.push({
-        data: date,
+        date: date,
         isRead: isRead,
         _id: id,
         amount: price.slice(2),
