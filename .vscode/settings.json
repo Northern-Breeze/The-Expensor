@@ -4,8 +4,10 @@
         "Ionicons",
         "Xaxis",
         "Yaxes",
+        "alldata",
         "capitec",
         "heatmap",
+        "plotdata",
         "yaxis"
     ]
 }

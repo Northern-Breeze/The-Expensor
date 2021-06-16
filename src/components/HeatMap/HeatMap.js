@@ -34,16 +34,7 @@ export default function HeatMap(props) {
 
     const value = counter(temp);
     setHeat(value);
-    console.log(value);
   }, [data]);
-
-  React.useEffect(() => {
-    const date = new Date();
-    const dateFormatted = `${date.getFullYear()}-${
-      date.getMonth() + 1
-    }-${date.getDate()}`;
-    setMaximum(dateFormatted);
-  }, []);
 
   return (
     <ContributionGraph
@@ -54,8 +45,6 @@ export default function HeatMap(props) {
       height={220}
       chartConfig={{
         backgroundColor: 'blue',
-        backgroundGradientFrom: '#fb8c00',
-        backgroundGradientTo: '#ffa726',
         decimalPlaces: 2, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,

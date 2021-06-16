@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(4,170,164,1)',
     borderRadius: 20,
     marginHorizontal: 10,
     width: width - 20,
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   iconContainer: {
     paddingVertical: 30,
     paddingHorizontal: 30,
-    backgroundColor: '#fc8c03',
     borderRadius: 20,
     height: 85,
     width: 90,
@@ -46,6 +45,7 @@ const styles = StyleSheet.create({
   reference: {
     fontWeight: 'bold',
     fontSize: 13,
+    color: '#fff',
   },
   categoryContainer: {
     flexDirection: 'row',
@@ -63,16 +63,12 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontSize: 17,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     marginRight: 10,
   },
-  green: {
-    color: 'green',
-  },
-  red: {
-    color: 'red',
-  },
+  green: {color: '#0000FF'},
+  red: {color: '#FF0000'},
 });
 
 export default styles;

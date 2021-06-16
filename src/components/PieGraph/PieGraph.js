@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {PieChart} from 'react-native-chart-kit';
 import {Dimensions} from 'react-native';
 import ellipse from '../../utils/elipse';
@@ -15,21 +15,47 @@ export default function PieGraph(data) {
     };
   }, []);
 
-  React.useEffect(() => {
-    if (pieData) {
-      const temp = [];
-      pieData.forEach((item, index) => {
-        if (index <= 5) {
+  const counter = (a) => {
+    let count = {};
+    let temp = [];
+    const plotdata = [];
+    a.forEach(function (i) {
+      count[i.name] = (count[i.name] || 0) + 1;
+    });
+    Object.keys(count).forEach((item) => {
+      plotdata.push({name: item, count: count[item]});
+    });
+
+    a.forEach((item, index) => {
+      if (plotdata[index]) {
+        if (item.name === plotdata[index].name) {
           temp.push({
-            name: ellipse(item.title, 12),
-            color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-            population: Math.round(item.amount),
+            name: ellipse(item.name),
+            color: item.color,
+            population: item.population * plotdata[index].count,
             legendFontColor: '#7F7F7F',
             legendFontSize: 15,
           });
         }
+      }
+    });
+    return temp;
+  };
+
+  React.useEffect(() => {
+    if (pieData) {
+      const alldata = [];
+      pieData.forEach((item, index) => {
+        alldata.push({
+          name: item.title,
+          color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+          population: Math.round(item.amount),
+          legendFontColor: '#7F7F7F',
+          legendFontSize: 15,
+        });
       });
-      setPieList(temp);
+      const value = counter(alldata);
+      setPieList(value);
     }
   }, [pieData]);
 
@@ -47,7 +73,7 @@ export default function PieGraph(data) {
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       }}
       accessor="population"
-      backgroundColor="transparent"
+      backgroundColor="#000"
       paddingLeft="15"
       absolute
     />

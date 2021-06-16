@@ -16,7 +16,7 @@ export default function ({item}) {
         <FontAwesome5
           name={deduct ? 'angry' : 'smile-beam'}
           size={30}
-          color={deduct ? 'red' : 'green'}
+          color="black"
         />
       </View>
       <View style={styles.contentContainer}>
@@ -26,17 +26,11 @@ export default function ({item}) {
           </View>
           <View style={styles.categoryContainer}>
             <Text style={styles.amount}>{category}</Text>
-            <Text
-              style={[
-                styles.amount,
-                {color: deduct ? styles.red : styles.green},
-              ]}>
-              R {amount}
-            </Text>
+            <Text style={[styles.amount]}>R {amount}</Text>
             <Ionicons
               name={'md-mail-unread-outline'}
               size={20}
-              color={isRead ? 'black' : 'green'}
+              color={isRead ? 'black' : 'blue'}
             />
           </View>
         </View>
