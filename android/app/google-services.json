@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1015210077780",
+    "project_id": "the-expensor-63f55",
+    "storage_bucket": "the-expensor-63f55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015210077780:android:331c29e6bd3b31d92bc7c1",
+        "android_client_info": {
+          "package_name": "com.theexpensor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015210077780-smfnudnhj40g3t8sj9nu7u58gs79jg7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0deNbkZhL3s-J7P_peXhYXzBZQhXrsvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015210077780-smfnudnhj40g3t8sj9nu7u58gs79jg7h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

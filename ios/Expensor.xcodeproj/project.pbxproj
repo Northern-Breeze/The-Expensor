@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* TheExpensorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TheExpensorTests.m */; };
+		00E356F31AD99517003FC87E /* ExpensorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ExpensorTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* TheExpensorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TheExpensorTests.m */; };
-		3EB5882376832584DE937853 /* libPods-TheExpensor-TheExpensorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDAF365EED3813DAF186167 /* libPods-TheExpensor-TheExpensorTests.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* ExpensorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ExpensorTests.m */; };
+		3EB5882376832584DE937853 /* libPods-Expensor-ExpensorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDAF365EED3813DAF186167 /* libPods-Expensor-ExpensorTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9BF05A4D06523E5279ED84BB /* libPods-TheExpensor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E09C5CEA3C5ADBA0E86A6947 /* libPods-TheExpensor.a */; };
-		A5D46A50E2F4A42B74E48D1D /* libPods-TheExpensor-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1862D3BAAD519E53CF921B3B /* libPods-TheExpensor-tvOS.a */; };
-		ADA61730B9C469096C1F1F92 /* libPods-TheExpensor-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F071B6BD2E8E5284F94E3E /* libPods-TheExpensor-tvOSTests.a */; };
+		9BF05A4D06523E5279ED84BB /* libPods-Expensor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E09C5CEA3C5ADBA0E86A6947 /* libPods-Expensor.a */; };
+		A5D46A50E2F4A42B74E48D1D /* libPods-Expensor-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1862D3BAAD519E53CF921B3B /* libPods-Expensor-tvOS.a */; };
+		ADA61730B9C469096C1F1F92 /* libPods-Expensor-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55F071B6BD2E8E5284F94E3E /* libPods-Expensor-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,45 +28,45 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = TheExpensor;
+			remoteInfo = Expensor;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "TheExpensor-tvOS";
+			remoteInfo = "Expensor-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* TheExpensorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheExpensorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ExpensorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpensorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* TheExpensorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheExpensorTests.m; sourceTree = "<group>"; };
-		03BCFE839246DE7839921486 /* Pods-TheExpensor-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-TheExpensor-tvOSTests/Pods-TheExpensor-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* TheExpensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheExpensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TheExpensor/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = TheExpensor/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TheExpensor/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TheExpensor/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TheExpensor/main.m; sourceTree = "<group>"; };
-		1862D3BAAD519E53CF921B3B /* libPods-TheExpensor-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheExpensor-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		237E6DC630DC0EA06DEDD70B /* Pods-TheExpensor-TheExpensorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor-TheExpensorTests.release.xcconfig"; path = "Target Support Files/Pods-TheExpensor-TheExpensorTests/Pods-TheExpensor-TheExpensorTests.release.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* TheExpensor-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheExpensor-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* TheExpensor-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TheExpensor-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		42166A7BE8035D34FDE38500 /* Pods-TheExpensor-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor-tvOS.release.xcconfig"; path = "Target Support Files/Pods-TheExpensor-tvOS/Pods-TheExpensor-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		55F071B6BD2E8E5284F94E3E /* libPods-TheExpensor-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheExpensor-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B4032774BB35A3026986718 /* Pods-TheExpensor-TheExpensorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor-TheExpensorTests.debug.xcconfig"; path = "Target Support Files/Pods-TheExpensor-TheExpensorTests/Pods-TheExpensor-TheExpensorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		64AA967014B8244565D465B0 /* Pods-TheExpensor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor.debug.xcconfig"; path = "Target Support Files/Pods-TheExpensor/Pods-TheExpensor.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TheExpensor/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9E52F026DAB70B325291843C /* Pods-TheExpensor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor.release.xcconfig"; path = "Target Support Files/Pods-TheExpensor/Pods-TheExpensor.release.xcconfig"; sourceTree = "<group>"; };
-		D5307E61DF6504A6482FB92E /* Pods-TheExpensor-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-TheExpensor-tvOS/Pods-TheExpensor-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		E09C5CEA3C5ADBA0E86A6947 /* libPods-TheExpensor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheExpensor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* ExpensorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpensorTests.m; sourceTree = "<group>"; };
+		03BCFE839246DE7839921486 /* Pods-Expensor-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Expensor-tvOSTests/Pods-Expensor-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Expensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Expensor/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Expensor/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Expensor/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Expensor/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Expensor/main.m; sourceTree = "<group>"; };
+		1862D3BAAD519E53CF921B3B /* libPods-Expensor-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expensor-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		237E6DC630DC0EA06DEDD70B /* Pods-Expensor-ExpensorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor-ExpensorTests.release.xcconfig"; path = "Target Support Files/Pods-Expensor-ExpensorTests/Pods-Expensor-ExpensorTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* Expensor-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expensor-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* Expensor-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Expensor-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42166A7BE8035D34FDE38500 /* Pods-Expensor-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Expensor-tvOS/Pods-Expensor-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		55F071B6BD2E8E5284F94E3E /* libPods-Expensor-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expensor-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4032774BB35A3026986718 /* Pods-Expensor-ExpensorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor-ExpensorTests.debug.xcconfig"; path = "Target Support Files/Pods-Expensor-ExpensorTests/Pods-Expensor-ExpensorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64AA967014B8244565D465B0 /* Pods-Expensor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor.debug.xcconfig"; path = "Target Support Files/Pods-Expensor/Pods-Expensor.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Expensor/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E52F026DAB70B325291843C /* Pods-Expensor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor.release.xcconfig"; path = "Target Support Files/Pods-Expensor/Pods-Expensor.release.xcconfig"; sourceTree = "<group>"; };
+		D5307E61DF6504A6482FB92E /* Pods-Expensor-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Expensor-tvOS/Pods-Expensor-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E09C5CEA3C5ADBA0E86A6947 /* libPods-Expensor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expensor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F8F6B9234BC9AE8008304003 /* Pods-TheExpensor-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheExpensor-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TheExpensor-tvOSTests/Pods-TheExpensor-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FDDAF365EED3813DAF186167 /* libPods-TheExpensor-TheExpensorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheExpensor-TheExpensorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8F6B9234BC9AE8008304003 /* Pods-Expensor-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expensor-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Expensor-tvOSTests/Pods-Expensor-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FDDAF365EED3813DAF186167 /* libPods-Expensor-ExpensorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Expensor-ExpensorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EB5882376832584DE937853 /* libPods-TheExpensor-TheExpensorTests.a in Frameworks */,
+				3EB5882376832584DE937853 /* libPods-Expensor-ExpensorTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BF05A4D06523E5279ED84BB /* libPods-TheExpensor.a in Frameworks */,
+				9BF05A4D06523E5279ED84BB /* libPods-Expensor.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D46A50E2F4A42B74E48D1D /* libPods-TheExpensor-tvOS.a in Frameworks */,
+				A5D46A50E2F4A42B74E48D1D /* libPods-Expensor-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,20 +98,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADA61730B9C469096C1F1F92 /* libPods-TheExpensor-tvOSTests.a in Frameworks */,
+				ADA61730B9C469096C1F1F92 /* libPods-Expensor-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* TheExpensorTests */ = {
+		00E356EF1AD99517003FC87E /* ExpensorTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* TheExpensorTests.m */,
+				00E356F21AD99517003FC87E /* ExpensorTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = TheExpensorTests;
+			path = ExpensorTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -122,7 +122,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* TheExpensor */ = {
+		13B07FAE1A68108700A75B9A /* Expensor */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -133,7 +133,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = TheExpensor;
+			name = Expensor;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -141,10 +141,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				E09C5CEA3C5ADBA0E86A6947 /* libPods-TheExpensor.a */,
-				FDDAF365EED3813DAF186167 /* libPods-TheExpensor-TheExpensorTests.a */,
-				1862D3BAAD519E53CF921B3B /* libPods-TheExpensor-tvOS.a */,
-				55F071B6BD2E8E5284F94E3E /* libPods-TheExpensor-tvOSTests.a */,
+				E09C5CEA3C5ADBA0E86A6947 /* libPods-Expensor.a */,
+				FDDAF365EED3813DAF186167 /* libPods-Expensor-ExpensorTests.a */,
+				1862D3BAAD519E53CF921B3B /* libPods-Expensor-tvOS.a */,
+				55F071B6BD2E8E5284F94E3E /* libPods-Expensor-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,9 +159,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* TheExpensor */,
+				13B07FAE1A68108700A75B9A /* Expensor */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* TheExpensorTests */,
+				00E356EF1AD99517003FC87E /* ExpensorTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				EDA6AC9F0A856090F7F1CE68 /* Pods */,
@@ -174,10 +174,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* TheExpensor.app */,
-				00E356EE1AD99517003FC87E /* TheExpensorTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* TheExpensor-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* TheExpensor-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Expensor.app */,
+				00E356EE1AD99517003FC87E /* ExpensorTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* Expensor-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* Expensor-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,14 +185,14 @@
 		EDA6AC9F0A856090F7F1CE68 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				64AA967014B8244565D465B0 /* Pods-TheExpensor.debug.xcconfig */,
-				9E52F026DAB70B325291843C /* Pods-TheExpensor.release.xcconfig */,
-				5B4032774BB35A3026986718 /* Pods-TheExpensor-TheExpensorTests.debug.xcconfig */,
-				237E6DC630DC0EA06DEDD70B /* Pods-TheExpensor-TheExpensorTests.release.xcconfig */,
-				D5307E61DF6504A6482FB92E /* Pods-TheExpensor-tvOS.debug.xcconfig */,
-				42166A7BE8035D34FDE38500 /* Pods-TheExpensor-tvOS.release.xcconfig */,
-				F8F6B9234BC9AE8008304003 /* Pods-TheExpensor-tvOSTests.debug.xcconfig */,
-				03BCFE839246DE7839921486 /* Pods-TheExpensor-tvOSTests.release.xcconfig */,
+				64AA967014B8244565D465B0 /* Pods-Expensor.debug.xcconfig */,
+				9E52F026DAB70B325291843C /* Pods-Expensor.release.xcconfig */,
+				5B4032774BB35A3026986718 /* Pods-Expensor-ExpensorTests.debug.xcconfig */,
+				237E6DC630DC0EA06DEDD70B /* Pods-Expensor-ExpensorTests.release.xcconfig */,
+				D5307E61DF6504A6482FB92E /* Pods-Expensor-tvOS.debug.xcconfig */,
+				42166A7BE8035D34FDE38500 /* Pods-Expensor-tvOS.release.xcconfig */,
+				F8F6B9234BC9AE8008304003 /* Pods-Expensor-tvOSTests.debug.xcconfig */,
+				03BCFE839246DE7839921486 /* Pods-Expensor-tvOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -201,9 +201,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* TheExpensorTests */ = {
+		00E356ED1AD99517003FC87E /* ExpensorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "TheExpensorTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ExpensorTests" */;
 			buildPhases = (
 				8EAF9492DE3A37DE83B0A470 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -217,14 +217,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = TheExpensorTests;
-			productName = TheExpensorTests;
-			productReference = 00E356EE1AD99517003FC87E /* TheExpensorTests.xctest */;
+			name = ExpensorTests;
+			productName = ExpensorTests;
+			productReference = 00E356EE1AD99517003FC87E /* ExpensorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* TheExpensor */ = {
+		13B07F861A680F5B00A75B9A /* Expensor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TheExpensor" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Expensor" */;
 			buildPhases = (
 				71546FD109B43F8E1F5AFB59 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -239,14 +239,14 @@
 			);
 			dependencies = (
 			);
-			name = TheExpensor;
-			productName = TheExpensor;
-			productReference = 13B07F961A680F5B00A75B9A /* TheExpensor.app */;
+			name = Expensor;
+			productName = Expensor;
+			productReference = 13B07F961A680F5B00A75B9A /* Expensor.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* TheExpensor-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* Expensor-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TheExpensor-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Expensor-tvOS" */;
 			buildPhases = (
 				3384CCF24F294967278A2518 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -259,14 +259,14 @@
 			);
 			dependencies = (
 			);
-			name = "TheExpensor-tvOS";
-			productName = "TheExpensor-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* TheExpensor-tvOS.app */;
+			name = "Expensor-tvOS";
+			productName = "Expensor-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* Expensor-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* TheExpensor-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* Expensor-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TheExpensor-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Expensor-tvOSTests" */;
 			buildPhases = (
 				14C4D1088745F342D15441B6 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -278,9 +278,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "TheExpensor-tvOSTests";
-			productName = "TheExpensor-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* TheExpensor-tvOSTests.xctest */;
+			name = "Expensor-tvOSTests";
+			productName = "Expensor-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* Expensor-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -309,7 +309,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "TheExpensor" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Expensor" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -322,10 +322,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* TheExpensor */,
-				00E356ED1AD99517003FC87E /* TheExpensorTests */,
-				2D02E47A1E0B4A5D006451C7 /* TheExpensor-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* TheExpensor-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* Expensor */,
+				00E356ED1AD99517003FC87E /* ExpensorTests */,
+				2D02E47A1E0B4A5D006451C7 /* Expensor-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* Expensor-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -394,7 +394,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheExpensor-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Expensor-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -407,7 +407,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheExpensor-TheExpensorTests/Pods-TheExpensor-TheExpensorTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Expensor-ExpensorTests/Pods-Expensor-ExpensorTests-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -448,7 +448,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheExpensor-TheExpensorTests/Pods-TheExpensor-TheExpensorTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expensor-ExpensorTests/Pods-Expensor-ExpensorTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2CE3B0E991816A4F4D66CC59 /* [CP] Copy Pods Resources */ = {
@@ -457,7 +457,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheExpensor/Pods-TheExpensor-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Expensor/Pods-Expensor-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -498,7 +498,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheExpensor/Pods-TheExpensor-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expensor/Pods-Expensor-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
@@ -530,7 +530,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheExpensor-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Expensor-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -552,7 +552,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheExpensor-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Expensor-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -574,7 +574,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TheExpensor-TheExpensorTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Expensor-ExpensorTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -587,7 +587,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheExpensor-TheExpensorTests/Pods-TheExpensor-TheExpensorTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Expensor-ExpensorTests/Pods-Expensor-ExpensorTests-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -596,7 +596,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheExpensor-TheExpensorTests/Pods-TheExpensor-TheExpensorTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expensor-ExpensorTests/Pods-Expensor-ExpensorTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C557E8A3D15A2305724CDD75 /* [CP] Embed Pods Frameworks */ = {
@@ -605,7 +605,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TheExpensor/Pods-TheExpensor-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Expensor/Pods-Expensor-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -614,7 +614,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TheExpensor/Pods-TheExpensor-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expensor/Pods-Expensor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -662,7 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* TheExpensorTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ExpensorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,7 +688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* TheExpensorTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* ExpensorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,12 +697,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* TheExpensor */;
+			target = 13B07F861A680F5B00A75B9A /* Expensor */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* TheExpensor-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* Expensor-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -710,14 +710,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B4032774BB35A3026986718 /* Pods-TheExpensor-TheExpensorTests.debug.xcconfig */;
+			baseConfigurationReference = 5B4032774BB35A3026986718 /* Pods-Expensor-ExpensorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TheExpensorTests/Info.plist;
+				INFOPLIST_FILE = ExpensorTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -727,17 +727,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheExpensor.app/TheExpensor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expensor.app/Expensor";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 237E6DC630DC0EA06DEDD70B /* Pods-TheExpensor-TheExpensorTests.release.xcconfig */;
+			baseConfigurationReference = 237E6DC630DC0EA06DEDD70B /* Pods-Expensor-ExpensorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = TheExpensorTests/Info.plist;
+				INFOPLIST_FILE = ExpensorTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -747,19 +747,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheExpensor.app/TheExpensor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expensor.app/Expensor";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64AA967014B8244565D465B0 /* Pods-TheExpensor.debug.xcconfig */;
+			baseConfigurationReference = 64AA967014B8244565D465B0 /* Pods-Expensor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = TheExpensor/Info.plist;
+				INFOPLIST_FILE = Expensor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -767,7 +767,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = TheExpensor;
+				PRODUCT_NAME = Expensor;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -776,12 +776,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E52F026DAB70B325291843C /* Pods-TheExpensor.release.xcconfig */;
+			baseConfigurationReference = 9E52F026DAB70B325291843C /* Pods-Expensor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = TheExpensor/Info.plist;
+				INFOPLIST_FILE = Expensor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -789,7 +789,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = TheExpensor;
+				PRODUCT_NAME = Expensor;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -797,7 +797,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5307E61DF6504A6482FB92E /* Pods-TheExpensor-tvOS.debug.xcconfig */;
+			baseConfigurationReference = D5307E61DF6504A6482FB92E /* Pods-Expensor-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -808,14 +808,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TheExpensor-tvOS/Info.plist";
+				INFOPLIST_FILE = "Expensor-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TheExpensor-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Expensor-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -825,7 +825,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42166A7BE8035D34FDE38500 /* Pods-TheExpensor-tvOS.release.xcconfig */;
+			baseConfigurationReference = 42166A7BE8035D34FDE38500 /* Pods-Expensor-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -836,14 +836,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TheExpensor-tvOS/Info.plist";
+				INFOPLIST_FILE = "Expensor-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TheExpensor-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Expensor-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -853,7 +853,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8F6B9234BC9AE8008304003 /* Pods-TheExpensor-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = F8F6B9234BC9AE8008304003 /* Pods-Expensor-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -863,24 +863,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TheExpensor-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Expensor-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TheExpensor-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Expensor-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheExpensor-tvOS.app/TheExpensor-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expensor-tvOS.app/Expensor-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03BCFE839246DE7839921486 /* Pods-TheExpensor-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 03BCFE839246DE7839921486 /* Pods-Expensor-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -890,17 +890,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TheExpensor-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Expensor-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TheExpensor-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Expensor-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheExpensor-tvOS.app/TheExpensor-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Expensor-tvOS.app/Expensor-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1021,7 +1021,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "TheExpensorTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ExpensorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1030,7 +1030,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TheExpensor" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Expensor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1039,7 +1039,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TheExpensor-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Expensor-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1048,7 +1048,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TheExpensor-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Expensor-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1057,7 +1057,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "TheExpensor" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Expensor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
