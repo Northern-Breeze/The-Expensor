@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "TheExpensor-tvOS.app"
-               BlueprintName = "TheExpensor-tvOS"
-               ReferencedContainer = "container:TheExpensor.xcodeproj">
+               BuildableName = "Expensor-tvOS.app"
+               BlueprintName = "Expensor-tvOS"
+               ReferencedContainer = "container:Expensor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "TheExpensor-tvOSTests.xctest"
-               BlueprintName = "TheExpensor-tvOSTests"
-               ReferencedContainer = "container:TheExpensor.xcodeproj">
+               BuildableName = "Expensor-tvOSTests.xctest"
+               BlueprintName = "Expensor-tvOSTests"
+               ReferencedContainer = "container:Expensor.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "TheExpensor-tvOS.app"
-            BlueprintName = "TheExpensor-tvOS"
-            ReferencedContainer = "container:TheExpensor.xcodeproj">
+            BuildableName = "Expensor-tvOS.app"
+            BlueprintName = "Expensor-tvOS"
+            ReferencedContainer = "container:Expensor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "TheExpensor-tvOS.app"
-            BlueprintName = "TheExpensor-tvOS"
-            ReferencedContainer = "container:TheExpensor.xcodeproj">
+            BuildableName = "Expensor-tvOS.app"
+            BlueprintName = "Expensor-tvOS"
+            ReferencedContainer = "container:Expensor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
