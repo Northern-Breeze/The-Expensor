@@ -26,6 +26,7 @@ export default function Graph(props) {
         backgroundGradientFrom: 'rgba(9,185,182,1)',
         backgroundGradientFromOpacity: 0,
         backgroundGradientTo: 'rgba(9,185,182,1)',
+        backgroundColor: '#fff',
         decimalPlaces: 2,
         color: (opacity = 0.1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 0.4) => `rgba(255, 255, 255, ${opacity})`,

@@ -264,7 +264,7 @@ export default function Home() {
               ]}
               activeOpacity={0.7}
               onPress={() => switchTo('heat')}>
-              <Text style={styles.controlTextM}>Heat Map(new)</Text>
+              <Text style={styles.controlTextM}>Heat Map</Text>
             </TouchableOpacity>
           </View>
         </View>
