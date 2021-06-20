@@ -26,19 +26,31 @@ export default function PieGraph(data) {
       plotdata.push({name: item, count: count[item]});
     });
 
-    a.forEach((item, index) => {
-      if (plotdata[index]) {
-        if (item.name === plotdata[index].name) {
+    for (let index = 0; index < a.length; index++) {
+      if (index < 8) {
+        if (plotdata[index] && a[index].name === plotdata[index].name) {
           temp.push({
-            name: ellipse(item.name),
-            color: item.color,
-            population: item.population * plotdata[index].count,
+            name: ellipse(a[index].name),
+            color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(
+              Math.random() * 255,
+            )},${Math.floor(Math.random() * 255)})`,
+            population: a[index].population * plotdata[index].count,
+            legendFontColor: '#7F7F7F',
+            legendFontSize: 15,
+          });
+        } else {
+          temp.push({
+            name: ellipse(a[index].name),
+            color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(
+              Math.random() * 255,
+            )},${Math.floor(Math.random() * 255)})`,
+            population: a[index].population * 1,
             legendFontColor: '#7F7F7F',
             legendFontSize: 15,
           });
         }
       }
-    });
+    }
     return temp;
   };
 

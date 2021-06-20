@@ -21,24 +21,38 @@ export default function HeatMap(props) {
   };
   React.useEffect(() => {
     const temp = [];
-    data.forEach((item) => {
-      // make a date
-      const date = new Date(item.date);
+
+    for (let i = 0; i < data.length; i++) {
+      const date = new Date(data[i].date);
       const dateFormatted = `${date.getFullYear()}-${
         date.getMonth() + 1
       }-${date.getDate()}`;
       // Push to temp
       temp.push(dateFormatted);
-    });
+    }
 
     const value = counter(temp);
     setHeat(value);
   }, [data]);
+  function formatDate() {
+    var d = new Date(),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
+    if (month.length < 2) {
+      month = '0' + month;
+    }
+    if (day.length < 2) {
+      day = '0' + day;
+    }
+
+    return [year, month, day].join('-');
+  }
   return (
     <ContributionGraph
       values={heat}
-      endDate={new Date()}
+      endDate={formatDate()}
       numDays={110}
       width={width}
       height={220}
