@@ -41,8 +41,7 @@ export default function PieGraph(data) {
         } else {
           temp.push({
             name: ellipse(a[index].name),
-            color:
-            `rgb(${Math.floor(Math.random() * 255)},${Math.floor(
+            color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(
               Math.random() * 255,
             )},${Math.floor(Math.random() * 255)})`,
             population: a[index].population * 1,

@@ -1,4 +1,4 @@
-import { backUpMessage } from './saveMessage';
+import {backUpMessage} from './saveMessage';
 export const smsParser = (sms) => {
   const capitec = sms.filter((item) => item.address === '+2782004809006');
   const formattedMessages = []; // we need to keep track of the proper formatted SMS
@@ -32,6 +32,6 @@ export const smsParser = (sms) => {
       });
     }
   });
-  backUpMessage(formattedMessages)
+  backUpMessage(formattedMessages);
   return formattedMessages;
 };
