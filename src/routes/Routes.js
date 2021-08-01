@@ -1,6 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+
 import HomeRoute from './HomeRoutes';
+import SupportRoutes from './SupportRoutes';
 
 const RootStack = createStackNavigator();
 
@@ -21,6 +23,7 @@ export default function Routes() {
           },
         }}
       />
+      <RootStack.Screen name="support" component={SupportRoutes} />
     </RootStack.Navigator>
   );
 }
