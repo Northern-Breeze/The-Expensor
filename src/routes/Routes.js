@@ -1,17 +1,29 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
+// Routes
 import HomeRoute from './HomeRoutes';
 import SupportRoutes from './SupportRoutes';
 
-const RootStack = createStackNavigator();
+const TabNav = createMaterialTopTabNavigator();
 
+const TabScreen = () => {
+  return (
+    <TabNav.Navigator>
+      <TabNav.Screen name="Home" component={HomeRoute} />
+      <TabNav.Screen name="Settings" component={SupportRoutes} />
+    </TabNav.Navigator>
+  );
+};
+
+const RootStack = createStackNavigator();
 export default function Routes() {
   return (
     <RootStack.Navigator headerMode="none">
       <RootStack.Screen
         name="The Expensor"
-        component={HomeRoute}
+        component={TabScreen}
         options={{
           headerTransparent: {
             position: 'absolute',
@@ -23,7 +35,6 @@ export default function Routes() {
           },
         }}
       />
-      <RootStack.Screen name="support" component={SupportRoutes} />
     </RootStack.Navigator>
   );
 }

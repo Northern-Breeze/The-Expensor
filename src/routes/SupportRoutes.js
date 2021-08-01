@@ -6,7 +6,7 @@ const SupportStack = createStackNavigator();
 
 const SupportScreens = () => {
   return (
-    <SupportStack.Navigator>
+    <SupportStack.Navigator headerMode="none">
       <SupportStack.Screen name="support" component={Support} />
     </SupportStack.Navigator>
   );

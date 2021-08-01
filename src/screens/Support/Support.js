@@ -1,10 +1,28 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Pressable, Image, Linking} from 'react-native';
+
+import styles from './Support.style';
 
 export default function Support() {
+  const handleLaunch = () => {
+    Linking.openURL('https://www.buymeacoffee.com/thagana').catch((error) =>
+      console.log(error),
+    );
+  };
+
   return (
-    <View>
-      <Text>Support me</Text>
+    <View style={styles.container}>
+      <Pressable onPress={handleLaunch} style={styles.button}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={require('../../assets/buy-me-coffee.jpeg')}
+            style={styles.image}
+          />
+        </View>
+        <View>
+          <Text style={styles.text}>Support me</Text>
+        </View>
+      </Pressable>
     </View>
   );
 }

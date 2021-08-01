@@ -7,7 +7,7 @@ const RooStack = createStackNavigator();
 
 export default function HomeRoutes() {
   return (
-    <RooStack.Navigator>
+    <RooStack.Navigator headerMode="none">
       <RooStack.Screen name="Home" component={Home} />
     </RooStack.Navigator>
   );
