@@ -1,28 +1,14 @@
 import React from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from '../screens/Home';
 
-const RootDrawer = createDrawerNavigator();
+const RooStack = createStackNavigator();
 
 export default function HomeRoutes() {
   return (
-    <RootDrawer.Navigator>
-      <RootDrawer.Screen
-        name="Home"
-        component={Home}
-        options={{
-          title: '',
-          drawerIcon: ({focused, size}) => (
-            <Ionicons
-              name="md-home"
-              size={size}
-              color={focused ? '#7cc' : '#ccc'}
-            />
-          ),
-        }}
-      />
-    </RootDrawer.Navigator>
+    <RooStack.Navigator headerMode="none">
+      <RooStack.Screen name="Home" component={Home} />
+    </RooStack.Navigator>
   );
 }

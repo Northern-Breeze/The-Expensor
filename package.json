@@ -13,7 +13,9 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.5",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-firebase/app": "^12.4.0",
     "@react-navigation/drawer": "^5.9.3",
+    "@react-navigation/material-top-tabs": "^5.3.15",
     "@react-navigation/native": "^5.7.6",
     "@react-navigation/stack": "^5.9.3",
     "easy-peasy": "^4.0.1",
@@ -28,6 +30,7 @@
     "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.11.0",
     "react-native-svg": "^12.1.0",
+    "react-native-tab-view": "^2.16.0",
     "react-native-vector-icons": "^7.1.0"
   },
   "devDependencies": {

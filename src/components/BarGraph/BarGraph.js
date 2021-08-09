@@ -24,7 +24,7 @@ export default function Graph(props) {
       yAxisLabel="R"
       chartConfig={{
         backgroundGradientFrom: 'rgba(9,185,182,1)',
-        backgroundGradientFromOpacity: 0,
+        backgroundGradientFromOpacity: 1,
         backgroundGradientTo: 'rgba(9,185,182,1)',
         backgroundColor: '#fff',
         decimalPlaces: 2,

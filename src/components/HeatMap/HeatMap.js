@@ -58,7 +58,7 @@ export default function HeatMap(props) {
       height={220}
       chartConfig={{
         backgroundGradientFrom: 'rgba(9,185,182,1)',
-        backgroundGradientFromOpacity: 0,
+        backgroundGradientFromOpacity: 1,
         backgroundGradientTo: 'rgba(9,185,182,1)',
         decimalPlaces: 2, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
