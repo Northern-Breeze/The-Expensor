@@ -12,7 +12,7 @@ const TabScreen = () => {
   return (
     <TabNav.Navigator>
       <TabNav.Screen name="Home" component={HomeRoute} />
-      <TabNav.Screen name="Settings" component={SupportRoutes} />
+      <TabNav.Screen name="Support" component={SupportRoutes} />
     </TabNav.Navigator>
   );
 };
