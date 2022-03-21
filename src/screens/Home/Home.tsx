@@ -12,21 +12,36 @@ import CardList from '../../components/CardList/CardList';
 
 // helper function
 import {smsParser} from '../../utils/messages';
+import makeWeek from '../../helpers/makeWeek';
+import makeOrder from '../../helpers/makeOrder';
+
+interface SMSDataList {
+  date: string;
+  _id: string;
+  amount: number;
+  title: string;
+  category: string;
+  isRead: boolean;
+  yaxis: string;
+  deduct: boolean;
+}
 
 export default function Home() {
   const [minDate] = React.useState('');
   const [maxDate] = React.useState('');
-  const [smsDataList, setSmsDataList] = React.useState([]);
-  const [yAxis, setYaxes] = React.useState([]);
-  const [xAxis, setXaxis] = React.useState([]);
+  const [smsDataList, setSmsDataList] = React.useState<SMSDataList[]>([]);
+  const [yAxis, setYaxes] = React.useState<number[]>([]);
+  const [xAxis, setXaxis] = React.useState<string[]>([]);
   const [plotKind, setPlotKind] = React.useState('bar');
 
   const denied = React.useRef(false);
 
   const listSMS = () => {
-    const filter = {
+    const filter: { minDate: string, maxDate: string, box: string, maxCount: number } = {
       box: 'inbox',
       maxCount: 100,
+      maxDate: '',
+      minDate: ''
     };
     if (minDate !== '') {
       filter.minDate = minDate;
@@ -36,13 +51,14 @@ export default function Home() {
     }
     SmsAndroid.list(
       JSON.stringify(filter),
-      (fail) => {
+      (fail: boolean) => {
         console.error('Failed with this error' + fail);
       },
-      (count, smsList) => {
+      (count: number, smsList: any) => {
         const arr = JSON.parse(smsList);
         const data = smsParser(arr);
         setSmsDataList(data);
+        console.log(count);
       },
     );
   };
@@ -99,100 +115,48 @@ export default function Home() {
     }
   };
 
-  const makeWeek = () => {
-    let week = [];
-    const date = new Date();
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-    if (days[date.getDay()] === 'Thu') {
-      week = ['Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu'];
-    }
-    if (days[date.getDay()] === 'Fri') {
-      week = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-    }
-    if (days[date.getDay()] === 'Sat') {
-      week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    }
-    if (days[date.getDay()] === 'Sun') {
-      week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    }
-    if (days[date.getDay()] === 'Mon') {
-      week = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon'];
-    }
-    if (days[date.getDay()] === 'Tue') {
-      week = ['Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue'];
-    }
-    if (days[date.getDay()] === 'Wen') {
-      week = ['Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed'];
-    }
-    return week;
-  };
-
-  const makeOrder = () => {
-    let week = {};
-    const date = new Date();
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-    if (days[date.getDay()] === 'Thu') {
-      week = {Fri: 0, Sat: 0, Sun: 0, Mon: 0, Tue: 0, Wed: 0, Thu: 0};
-    }
-    if (days[date.getDay()] === 'Fri') {
-      week = {Sat: 0, Sun: 0, Mon: 0, Tue: 0, Wed: 0, Thu: 0, Fri: 0};
-    }
-    if (days[date.getDay()] === 'Sat') {
-      week = {Sun: 0, Mon: 0, Tue: 0, Wed: 0, Thu: 0, Fri: 0, Sat: 0};
-    }
-    if (days[date.getDay()] === 'Sun') {
-      week = {Mon: 0, Tue: 0, Wed: 0, Thu: 0, Fri: 0, Sat: 0, Sun: 0};
-    }
-    if (days[date.getDay()] === 'Mon') {
-      week = {Tue: 0, Wed: 0, Thu: 0, Fri: 0, Sat: 0, Sun: 0, Mon: 0};
-    }
-    if (days[date.getDay()] === 'Tue') {
-      week = {Wed: 0, Thu: 0, Fri: 0, Sat: 0, Sun: 0, Mon: 0, Tue: 0};
-    }
-    if (days[date.getDay()] === 'Wed') {
-      week = {Thu: 0, Fri: 0, Sat: 0, Sun: 0, Mon: 0, Tue: 0, Wed: 0};
-    }
-    return week;
-  };
-
   React.useEffect(() => {
-    const x = [];
-    const y = [];
+    const x: number[] = [];
+    const y: number[] = [];
     let dates = makeOrder();
     if (smsDataList) {
       smsDataList.forEach((item, index) => {
         if (index <= 6) {
-          if (new Date(item.date).getDay() === 0) {
-            dates.Sun += Number(item.yaxis);
+          if (dates) {
+            if (new Date(item.date).getDay() === 0) {
+              dates.Sun += Number(item.yaxis);
+            }
+            if (new Date(item.date).getDay() === 1) {
+              dates.Mon += Number(item.yaxis);
+            }
+            if (new Date(item.date).getDay() === 2) {
+              dates.Tue += Number(item.yaxis);
+            }
+            if (new Date(item.date).getDay() === 3) {
+              dates.Wed += Number(item.yaxis);
+            }
+            if (new Date(item.date).getDay() === 4) {
+              dates.Thu += Number(item.yaxis);
+            }
+            if (new Date(item.date).getDay() === 5) {
+              dates.Fri += Number(item.yaxis);
+            }
+            if (new Date(item.date).getDay() === 6) {
+              dates.Sat += Number(item.yaxis);
+            }
+            x.push(new Date(item.date).getDate());
           }
-          if (new Date(item.date).getDay() === 1) {
-            dates.Mon += Number(item.yaxis);
-          }
-          if (new Date(item.date).getDay() === 2) {
-            dates.Tue += Number(item.yaxis);
-          }
-          if (new Date(item.date).getDay() === 3) {
-            dates.Wed += Number(item.yaxis);
-          }
-          if (new Date(item.date).getDay() === 4) {
-            dates.Thu += Number(item.yaxis);
-          }
-          if (new Date(item.date).getDay() === 5) {
-            dates.Fri += Number(item.yaxis);
-          }
-          if (new Date(item.date).getDay() === 6) {
-            dates.Sat += Number(item.yaxis);
-          }
-          x.push(new Date(item.date).getDate());
         }
       });
-      Object.keys(dates).forEach((item) => {
-        if (!isNaN(dates[item])) {
-          y.push(dates[item]);
-        }
-      });
+      if (dates) {
+        Object.keys(dates).forEach((item: string) => {
+          // @ts-ignore
+          if (!isNaN(dates[item])) {
+          // @ts-ignore
+            y.push(dates[item]);
+          }
+        });
+      }
       setXaxis(makeWeek());
       setYaxes(y);
     }
@@ -200,7 +164,6 @@ export default function Home() {
 
   React.useEffect(() => {
     checkAppPermissions();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
@@ -209,7 +172,7 @@ export default function Home() {
     };
   });
 
-  const plotSwitcher = (plot) => {
+  const plotSwitcher = (plot: string) => {
     switch (plot) {
       case 'bar':
         return <BarGraph xAxis={xAxis} yAxis={yAxis} />;
@@ -222,7 +185,7 @@ export default function Home() {
     }
   };
 
-  const switchTo = (part) => {
+  const switchTo = (part: string) => {
     setPlotKind(part);
   };
 
@@ -266,7 +229,7 @@ export default function Home() {
           </View>
         </View>
         <View>
-          {yAxis.length !== 0 && yAxis !== 0 && plotSwitcher(plotKind)}
+          {yAxis.length !== 0 && yAxis.length !== 0 && plotSwitcher(plotKind)}
         </View>
         <View style={styles.transactions}>
           <View style={styles.transactionHeader}>
@@ -289,7 +252,7 @@ export default function Home() {
               <FlatList
                 data={smsDataList}
                 renderItem={CardList}
-                keyExtractor={(item, index) => index.toString()}
+                keyExtractor={(_, index) => index.toString()}
               />
             </View>
           ) : (

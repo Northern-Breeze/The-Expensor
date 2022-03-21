@@ -1,6 +1,13 @@
-import {action} from 'easy-peasy';
+import {Action, action} from 'easy-peasy';
 
-export default {
+interface Model {
+  currentBalance: number;
+  balanceArray: number[];
+  setBalanceArray: Action<Model, number>,
+  setCurrentBalance: Action<Model, number>
+}
+
+const model: Model = {
   currentBalance: 0,
   balanceArray: [],
   setBalanceArray: action((state, payload) => {
@@ -13,3 +20,5 @@ export default {
     state.currentBalance = payload;
   }),
 };
+
+export default model;
