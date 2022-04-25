@@ -7,7 +7,21 @@ import ellipse from '../../utils/elipse';
 
 import styles from './Card.style';
 
-export default function ({item}) {
+interface IProps {
+  item: {
+    date: string;
+    _id: string;
+    amount: number;
+    title: string;
+    category: string;
+    isRead: boolean;
+    yaxis: string;
+    deduct: boolean;
+  }
+}
+
+export default function (props: IProps) {
+  const { item } = props;
   const {title, category, deduct, amount, isRead} = item;
 
   return (

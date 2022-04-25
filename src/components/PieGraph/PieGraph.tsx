@@ -4,9 +4,24 @@ import {Dimensions} from 'react-native';
 import ellipse from '../../utils/elipse';
 const {width} = Dimensions.get('window');
 
-export default function PieGraph(data) {
-  const {pieData} = data;
-  const [pieList, setPieList] = React.useState([]);
+interface IProps {
+  pieData: {
+    date: string;
+    _id: string;
+    amount: number;
+    title: string;
+    category: string;
+    isRead: boolean;
+    yaxis: string;
+    deduct: boolean;
+  }[]
+}
+
+interface PieList {name: string; color: string; population: number; legendFontColor: string; legendFontSize: number;}
+
+export default function PieGraph(props: IProps) {
+  const {pieData} = props;
+  const [pieList, setPieList] = React.useState<PieList[]>([]);
   const mounted = React.useRef(true);
 
   React.useEffect(() => {
@@ -15,11 +30,11 @@ export default function PieGraph(data) {
     };
   }, []);
 
-  const counter = (a) => {
-    let count = {};
+  const counter = (a: { name: string, population: number }[]) => {
+    let count: any = {};
     let temp = [];
-    const plotdata = [];
-    a.forEach(function (i) {
+    const plotdata: {name: string, count: any}[] = [];
+    a.forEach(function (i: { name: string }) {
       count[i.name] = (count[i.name] || 0) + 1;
     });
     Object.keys(count).forEach((item) => {
@@ -56,8 +71,8 @@ export default function PieGraph(data) {
 
   React.useEffect(() => {
     if (pieData) {
-      const alldata = [];
-      pieData.forEach((item, index) => {
+      const alldata: {name: string, color: string, population: number, legendFontColor: string, legendFontSize: number }[] = [];
+      pieData.forEach((item) => {
         alldata.push({
           name: item.title,
           color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,

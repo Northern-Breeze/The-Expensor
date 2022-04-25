@@ -4,7 +4,12 @@ import {BarChart} from 'react-native-chart-kit';
 
 const {width} = Dimensions.get('window');
 
-export default function Graph(props) {
+interface IProps {
+  xAxis: string[],
+  yAxis: number[],
+}
+
+export default function Graph(props: IProps) {
   const {xAxis, yAxis} = props;
   if (!xAxis && !yAxis) {
     return <View />;
@@ -22,6 +27,7 @@ export default function Graph(props) {
       width={width}
       height={220}
       yAxisLabel="R"
+      yAxisSuffix=''
       chartConfig={{
         backgroundGradientFrom: 'rgba(9,185,182,1)',
         backgroundGradientFromOpacity: 1,
@@ -33,7 +39,6 @@ export default function Graph(props) {
         style: {
           marginVertical: 2,
           borderRadius: 0,
-          color: '#fff',
           backgroundColor: 'rgba(18,160,115,1)',
         },
       }}
