@@ -9,9 +9,12 @@ interface ICapitec {
 }
 
 interface ISMS {
-  sms: ICapitec[]
+  date: string;
+  read: boolean;
+  body: string;
+  _id: string;
+  address: string;
 }
-
 
 interface IFilteredSMS {
   date: string;
@@ -24,9 +27,11 @@ interface IFilteredSMS {
   deduct: boolean;
 }
 
-export const smsParser = (props: ISMS) => {
-  const { sms } = props;
-  const capitec: ICapitec[] = sms.filter((item) => item.address === '+2782004809006');
+export const smsParser = (props: ISMS[]) => {
+  const sms = props;
+  const capitec: ICapitec[] = sms.filter(
+    (item) => item.address === '+2782004809006',
+  );
   const formattedMessages: IFilteredSMS[] = []; // we need to keep track of the proper formatted SMS
   capitec.forEach((item) => {
     const date = item.date;

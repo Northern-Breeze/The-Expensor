@@ -1,8 +1,8 @@
-const ellipse = (string: string, length = 29) => {
-  if (string.length > length) {
-    return string.substr(0, length - 1) + '...';
+const ellipse = (str: string, length = 29) => {
+  if (str.length > length) {
+    return str.substr(0, length - 1) + '...';
   }
-  return string;
+  return str;
 };
 
 export default ellipse;

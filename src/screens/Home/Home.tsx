@@ -36,12 +36,17 @@ export default function Home() {
 
   const denied = React.useRef(false);
 
-  const listSMS = () => {
-    const filter: { minDate: string, maxDate: string, box: string, maxCount: number } = {
+  const listSMS = React.useCallback(() => {
+    const filter: {
+      minDate: string;
+      maxDate: string;
+      box: string;
+      maxCount: number;
+    } = {
       box: 'inbox',
       maxCount: 100,
       maxDate: '',
-      minDate: ''
+      minDate: '',
     };
     if (minDate !== '') {
       filter.minDate = minDate;
@@ -55,13 +60,13 @@ export default function Home() {
         console.error('Failed with this error' + fail);
       },
       (count: number, smsList: any) => {
+        console.log('HERE_IS', smsList);
         const arr = JSON.parse(smsList);
         const data = smsParser(arr);
         setSmsDataList(data);
-        console.log(count);
       },
     );
-  };
+  }, [maxDate, minDate]);
 
   const requestPermissions = async () => {
     let granted = {};
@@ -78,28 +83,17 @@ export default function Home() {
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         // access allowed
+        console.log('ACCESS_GRANTED');
       } else {
         // access denied
+        console.log('ACCESS_DENIED');
         denied.current = true;
       }
     } catch (error) {
       console.error(error);
     }
   };
-  const checkAppPermissions = async () => {
-    if (Platform.OS === 'android') {
-      try {
-        if (!(await checkPermissions())) {
-          await requestPermissions();
-        }
-        if (await checkPermissions()) {
-          listSMS();
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  };
+
   const checkPermissions = async () => {
     let hasPermissions = false;
     try {
@@ -152,7 +146,7 @@ export default function Home() {
         Object.keys(dates).forEach((item: string) => {
           // @ts-ignore
           if (!isNaN(dates[item])) {
-          // @ts-ignore
+            // @ts-ignore
             y.push(dates[item]);
           }
         });
@@ -163,8 +157,22 @@ export default function Home() {
   }, [smsDataList]);
 
   React.useEffect(() => {
+    async function checkAppPermissions() {
+      if (Platform.OS === 'android') {
+        try {
+          if (!(await checkPermissions())) {
+            await requestPermissions();
+          }
+          if (await checkPermissions()) {
+            listSMS();
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    }
     checkAppPermissions();
-  }, []);
+  }, [listSMS]);
 
   React.useEffect(() => {
     return () => {
