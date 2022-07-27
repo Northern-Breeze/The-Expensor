@@ -6225,6 +6225,11 @@ react-native-screens@^2.11.0:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.11.0.tgz#34b30b07c2d04aa100cba984b944b303bfa43ea6"
   integrity sha512-vJzJE3zI1XUtqthrX3Dh2TBQWB+xFyaGhF52KBq9FjJUN5ws4xpLZJxBWa1KbGV3DilmcSZ4jmZR5LGordwE7w==
 
+react-native-sms-reader@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-sms-reader/-/react-native-sms-reader-2.0.2.tgz#8a8fb0a22d6ab12ec340cbebd20d81a1c66fba79"
+  integrity sha512-T/yT/fooAdZsUY/RQg/7rWRzkYaKGa7CBNkgw8S0S7RsgE43+tGjbwGM+w1Sf7LWjVaSQGCImgYaUjGMNaMzsg==
+
 react-native-svg@^12.1.0:
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-12.1.0.tgz#acfe48c35cd5fca3d5fd767abae0560c36cfc03d"

@@ -3,8 +3,8 @@ import {Action, action} from 'easy-peasy';
 interface Model {
   currentBalance: number;
   balanceArray: number[];
-  setBalanceArray: Action<Model, number>,
-  setCurrentBalance: Action<Model, number>
+  setBalanceArray: Action<Model, number>;
+  setCurrentBalance: Action<Model, number>;
 }
 
 const model: Model = {

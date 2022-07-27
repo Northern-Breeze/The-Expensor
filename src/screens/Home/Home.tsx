@@ -27,8 +27,6 @@ interface SMSDataList {
 }
 
 export default function Home() {
-  const [minDate] = React.useState('');
-  const [maxDate] = React.useState('');
   const [smsDataList, setSmsDataList] = React.useState<SMSDataList[]>([]);
   const [yAxis, setYaxes] = React.useState<number[]>([]);
   const [xAxis, setXaxis] = React.useState<string[]>([]);
@@ -38,35 +36,23 @@ export default function Home() {
 
   const listSMS = React.useCallback(() => {
     const filter: {
-      minDate: string;
-      maxDate: string;
       box: string;
-      maxCount: number;
     } = {
       box: 'inbox',
-      maxCount: 100,
-      maxDate: '',
-      minDate: '',
     };
-    if (minDate !== '') {
-      filter.minDate = minDate;
-    }
-    if (maxDate !== '') {
-      filter.maxDate = maxDate;
-    }
+
     SmsAndroid.list(
       JSON.stringify(filter),
       (fail: boolean) => {
         console.error('Failed with this error' + fail);
       },
       (count: number, smsList: any) => {
-        console.log('HERE_IS', smsList);
         const arr = JSON.parse(smsList);
         const data = smsParser(arr);
         setSmsDataList(data);
       },
     );
-  }, [maxDate, minDate]);
+  }, []);
 
   const requestPermissions = async () => {
     let granted = {};
