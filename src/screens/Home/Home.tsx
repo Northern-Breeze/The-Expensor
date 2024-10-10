@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {View, Text, Platform, PermissionsAndroid, FlatList} from 'react-native';
 import styles from './Home.styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -8,7 +8,6 @@ import SmsAndroid from 'react-native-get-sms-android';
 import BarGraph from '../../components/BarGraph';
 import PieGraph from '../../components/PieGraph';
 import HeatMap from '../../components/HeatMap';
-import CardList from '../../components/CardList/CardList';
 
 // helper function
 import {smsParser} from '../../utils/messages';
@@ -48,8 +47,8 @@ export default function Home() {
       },
       (count: number, smsList: any) => {
         const arr = JSON.parse(smsList);
-        const data = smsParser(arr);
-        setSmsDataList(data);
+        const data = smsParser(arr, 'TYMEBANK');
+        // setSmsDataList(data);
       },
     );
   }, []);
@@ -94,53 +93,6 @@ export default function Home() {
       console.error(error);
     }
   };
-
-  React.useEffect(() => {
-    const x: number[] = [];
-    const y: number[] = [];
-    let dates = makeOrder();
-    if (smsDataList) {
-      smsDataList.forEach((item, index) => {
-        if (index <= 6) {
-          if (dates) {
-            if (new Date(item.date).getDay() === 0) {
-              dates.Sun += Number(item.yaxis);
-            }
-            if (new Date(item.date).getDay() === 1) {
-              dates.Mon += Number(item.yaxis);
-            }
-            if (new Date(item.date).getDay() === 2) {
-              dates.Tue += Number(item.yaxis);
-            }
-            if (new Date(item.date).getDay() === 3) {
-              dates.Wed += Number(item.yaxis);
-            }
-            if (new Date(item.date).getDay() === 4) {
-              dates.Thu += Number(item.yaxis);
-            }
-            if (new Date(item.date).getDay() === 5) {
-              dates.Fri += Number(item.yaxis);
-            }
-            if (new Date(item.date).getDay() === 6) {
-              dates.Sat += Number(item.yaxis);
-            }
-            x.push(new Date(item.date).getDate());
-          }
-        }
-      });
-      if (dates) {
-        Object.keys(dates).forEach((item: string) => {
-          // @ts-ignore
-          if (!isNaN(dates[item])) {
-            // @ts-ignore
-            y.push(dates[item]);
-          }
-        });
-      }
-      setXaxis(makeWeek());
-      setYaxes(y);
-    }
-  }, [smsDataList]);
 
   React.useEffect(() => {
     async function checkAppPermissions() {
@@ -223,7 +175,6 @@ export default function Home() {
           </View>
         </View>
         <View>
-          {yAxis.length !== 0 && yAxis.length !== 0 && plotSwitcher(plotKind)}
         </View>
         <View style={styles.transactions}>
           <View style={styles.transactionHeader}>
@@ -241,19 +192,6 @@ export default function Home() {
               </View>
             </TouchableOpacity>
           </View>
-          {smsDataList.length !== 0 ? (
-            <View style={styles.listContainer}>
-              <FlatList
-                data={smsDataList}
-                renderItem={CardList}
-                keyExtractor={(_, index) => index.toString()}
-              />
-            </View>
-          ) : (
-            <View>
-              <Text>Empty</Text>
-            </View>
-          )}
         </View>
       </View>
     </View>
